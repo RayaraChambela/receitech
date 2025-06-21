@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil | Receita Tech</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/perfil.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+        <img src="assets/logo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+        Receita Tech
+      </a>
+      <div class="d-flex ms-auto align-items-center" style="gap: 1rem;">
+        <input type="text" class="form-control search-bar" placeholder="Pesquise a sua receita...">
+        <a href="perfil.html">
+          <img src="assets/avatar.svg" alt="Perfil" style="height: 32px;">
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="perfil-container text-center">
+    <div class="bg-header"></div>
+    <div class="foto-perfil-wrapper">
+      <img src="assets/avatar.svg" alt="Foto de Perfil" id="foto-perfil">
+      <label for="upload-perfil" class="upload-icone">
+        <img src="assets/icone-camera.svg" alt="Trocar Foto">
+      </label>
+      <input type="file" id="upload-perfil" accept="image/*" hidden>
+    </div>
+    <h2 id="nome-usuario">PALMIRINHA</h2>
+    <p id="email-usuario">palmirinhareceitas@gmail.com</p>
+
+    <div class="d-flex justify-content-center align-items-center gap-4 my-3">
+      <div>
+        <strong id="quantidade-posts">24</strong>
+        <span>Posts</span>
+      </div>
+      <button class="btn btn-outline-secondary">+ Novo Post</button>
+    </div>
+
+    <div class="galeria-receitas container">
+      <!-- Receitas do usuário serão carregadas aqui -->
+    </div>
+  </div>
+
+  <script src="js/perfil.js"></script>
+  <script>
+    // Exibir imagem de perfil salva
+    const imgBase64 = localStorage.getItem('fotoPerfil');
+    if (imgBase64) {
+      document.getElementById('foto-perfil').src = imgBase64;
+    }
+
+    // Trocar imagem de perfil
+    document.getElementById('upload-perfil').addEventListener('change', function () {
+      const file = this.files[0];
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const base64 = e.target.result;
+        localStorage.setItem('fotoPerfil', base64);
+        document.getElementById('foto-perfil').src = base64;
+      }
+      if (file) reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>
