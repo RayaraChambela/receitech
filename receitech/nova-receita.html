@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nova Receita</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <main class="cadastro-receita-container">
+
+    <!-- Etapa 1 - Informações básicas -->
+    <div class="etapa" id="etapa-1">
+      <h2>Criar nova receita</h2>
+      <input id="input-nome" placeholder="Nome da receita" />
+      <select id="select-categoria">
+        <option value="">Selecione a categoria</option>
+        <option value="Sobremesa">Sobremesa</option>
+        <option value="Almoço">Almoço</option>
+        <option value="Jantar">Jantar</option>
+        <option value="Lanches">Lanches</option>
+      </select>
+      <textarea id="textarea-sobre" placeholder="Sobre a receita..."></textarea>
+    </div>
+
+    <!-- Etapa 2 - Ingredientes -->
+    <div class="etapa" id="etapa-2" style="display: none;">
+      <h2>Inserir Ingredientes</h2>
+      <input class="input-ingrediente" placeholder="1 - Ingrediente" />
+      <input class="input-ingrediente" placeholder="2 - Ingrediente" />
+      <!-- Pode adicionar botão para inserir mais -->
+    </div>
+
+    <!-- Etapa 3 - Modo de preparo -->
+    <div class="etapa" id="etapa-3" style="display: none;">
+      <h2>Modo de Preparo</h2>
+      <input class="input-etapa-preparo" placeholder="1 - Etapa de preparo" />
+      <input class="input-etapa-preparo" placeholder="2 - Etapa de preparo" />
+      <input id="input-tempo" placeholder="Tempo de preparo (ex: 40min)" />
+    </div>
+
+    <!-- Etapa 4 - Dica do Chef -->
+    <div class="etapa" id="etapa-4" style="display: none;">
+      <h2>Dica do Chef</h2>
+      <textarea id="textarea-dica" placeholder="Digite uma dica especial..."></textarea>
+    </div>
+
+    <!-- Navegação -->
+    <div class="navegacao">
+      <button id="btn-voltar">← Voltar</button>
+      <button id="btn-proximo">Próximo →</button>
+    </div>
+
+  </main>
+
+  <script src="../js/nova-receita.js"></script>
+</body>
+</html>
