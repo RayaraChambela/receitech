@@ -1,5 +1,6 @@
 let etapaAtual = 1;
 let dadosReceita = {
+  id: '',
   nome: '',
   categoria: '',
   sobre: '',
@@ -7,7 +8,8 @@ let dadosReceita = {
   preparo: [],
   tempoPreparo: '',
   dica: '',
-  imagens: []
+  imagens: [],
+  autor: ''
 };
 
 function proximaEtapa() {
@@ -61,32 +63,50 @@ function finalizarReceita() {
   const inputs = document.querySelectorAll('#lista-imagens input');
   dadosReceita.imagens = [];
 
+  let imagensSelecionadas = 0;
+  for (let inp of inputs) {
+    if (inp.files[0]) imagensSelecionadas++;
+  }
+
+  if (imagensSelecionadas === 0) {
+    alert("Adicione pelo menos uma imagem!");
+    return;
+  }
+
+  let imagensLidas = 0;
   for (let inp of inputs) {
     if (inp.files[0]) {
       const reader = new FileReader();
       reader.onload = function (e) {
         dadosReceita.imagens.push(e.target.result);
-        
-        // Quando todas as imagens forem lidas, salva no localStorage
-        if (dadosReceita.imagens.length === inputs.length) {
+        imagensLidas++;
+
+        if (imagensLidas === imagensSelecionadas) {
           salvarLocalStorage();
         }
       };
       reader.readAsDataURL(inp.files[0]);
-    } else {
-      dadosReceita.imagens.push('');
-      if (dadosReceita.imagens.length === inputs.length) {
-        salvarLocalStorage();
-      }
     }
   }
 }
 
+
+
 function salvarLocalStorage() {
   let receitas = JSON.parse(localStorage.getItem('receitas')) || [];
+
+  // Gera um id único com base no timestamp
+  dadosReceita.id = Date.now();
+
+  // Recupera o nome do usuário logado, se existir
+  const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
+  dadosReceita.autor = usuario.nome || 'Anônimo';
+
   receitas.push(dadosReceita);
   localStorage.setItem('receitas', JSON.stringify(receitas));
-  window.location.href = "receita.html";
+
+  // Redireciona passando o ID da receita
+  window.location.href = `receita.html?id=${dadosReceita.id}`;
 }
 
 function voltarEtapa() {
@@ -138,3 +158,4 @@ function fecharModal() {
     window.location.href = "perfil.html";
   }
 }
+

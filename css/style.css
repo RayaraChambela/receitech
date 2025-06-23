@@ -242,11 +242,8 @@ main {
   text-align: center;
   padding: 1rem;
   font-size: var(--font-small);
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
 }
+
 
 /* =========================
    PÁGINA DE CADASTRO

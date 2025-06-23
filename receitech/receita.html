@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receita</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/receita.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+        <a href="index.html">
+        <img src="../img/logo.png" alt="Logo Receita Tech" class="logo-img" />
+        </a>
+
+        <div class="search-container">
+        <div class="dropdown categorias-dropdown">
+            <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+            Categorias
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li><button class="dropdown-item" type="button">Sobremesas</button></li>
+            <li><button class="dropdown-item" type="button">Almoço</button></li>
+            <li><button class="dropdown-item" type="button">Fitness</button></li>
+            <li><button class="dropdown-item" type="button">Lanches</button></li>
+            </ul>
+        </div>
+
+        <input type="text" id="campo-pesquisa" placeholder="Pesquise a sua receita..." />
+        </div>
+
+    <div class="user-icon">
+        <a href="#" id="user-link">
+        <img src="../assets/user-padrão.svg" alt="Usuário" />
+        </a>
+    </div>
+
+
+    </div>
+    </header>
+
+  <main class="container-receita">
+    <button class="voltar" onclick="window.history.back()">← Voltar</button>
+
+    <h1 id="nome-receita">Nome da Receita</h1>
+
+    <div class="receita-topo">
+      <img id="imagem-receita" src="" alt="Imagem da Receita">
+      <div class="sobre-receita">
+        <h2>Sobre a Receita</h2>
+        <p id="sobre-receita"></p>
+        <div class="detalhes">
+          <span id="tempo-preparo"></span>
+          <span id="ingredientes-contagem"></span>
+          <span id="autor-receita"></span>
+        </div>
+      </div>
+    </div>
+
+    <section class="ingredientes">
+      <h2>Ingredientes</h2>
+      <ul id="ingredientes"></ul>
+    </section>
+
+    <section class="preparo">
+      <h2>Modo de Preparo</h2>
+      <ol id="modo-preparo"></ol>
+    </section>
+
+    <section class="dica-chef">
+      <h2>Dica do Chef</h2>
+      <p id="dica-chef"></p>
+    </section>
+    
+
+  </main>
+  <footer class="footer">
+    <p>&copy; 2025 Receita Tech. Todos os direitos reservados.</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/receita.js"></script>
+  <script src="../js/pesquisa.js"></script>
+  
+</body>
+</html>
