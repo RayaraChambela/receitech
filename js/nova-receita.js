@@ -1,65 +1,140 @@
-document.addEventListener('DOMContentLoaded', () => {
-  let etapaAtual = 0;
-  const etapas = document.querySelectorAll('.etapa');
-  const btnProximo = document.getElementById('btn-proximo');
-  const btnVoltar = document.getElementById('btn-voltar');
+let etapaAtual = 1;
+let dadosReceita = {
+  nome: '',
+  categoria: '',
+  sobre: '',
+  ingredientes: [],
+  preparo: [],
+  tempoPreparo: '',
+  dica: '',
+  imagens: []
+};
 
-  const dadosReceita = JSON.parse(localStorage.getItem('rascunhoReceita')) || {};
+function proximaEtapa() {
+  const nome = document.getElementById('nome').value;
+  const categoria = document.getElementById('categoria').value;
+  const sobre = document.getElementById('sobre').value;
 
-  function mostrarEtapa(index) {
-    etapas.forEach((el, i) => {
-      el.style.display = i === index ? 'block' : 'none';
-    });
+  if (!nome || !categoria || !sobre) {
+    alert("Preencha todos os campos!");
+    return;
   }
 
-  function salvarEtapa() {
-    if (etapaAtual === 0) {
-      dadosReceita.nome = document.getElementById('input-nome').value;
-      dadosReceita.categoria = document.getElementById('select-categoria').value;
-      dadosReceita.sobre = document.getElementById('textarea-sobre').value;
-    }
+  dadosReceita.nome = nome;
+  dadosReceita.categoria = categoria;
+  dadosReceita.sobre = sobre;
 
-    if (etapaAtual === 1) {
-      const ingredientes = Array.from(document.querySelectorAll('.input-ingrediente'))
-        .map(input => input.value).filter(v => v);
-      dadosReceita.ingredientes = ingredientes;
-    }
+  mudarEtapa(2);
+}
 
-    if (etapaAtual === 2) {
-      const etapasPreparo = Array.from(document.querySelectorAll('.input-etapa-preparo'))
-        .map(input => input.value).filter(v => v);
-      dadosReceita.preparo = etapasPreparo;
-      dadosReceita.tempo = document.getElementById('input-tempo').value;
-    }
+function salvarEtapa2() {
+  const inputs = document.querySelectorAll('#lista-ingredientes input');
+  dadosReceita.ingredientes = Array.from(inputs).map(inp => inp.value).filter(val => val.trim() !== "");
 
-    if (etapaAtual === 3) {
-      dadosReceita.dica = document.getElementById('textarea-dica').value;
-    }
-
-    localStorage.setItem('rascunhoReceita', JSON.stringify(dadosReceita));
+  if (dadosReceita.ingredientes.length === 0) {
+    alert("Adicione pelo menos um ingrediente!");
+    return;
   }
 
-  btnProximo.addEventListener('click', () => {
-    salvarEtapa();
-    if (etapaAtual < etapas.length - 1) {
-      etapaAtual++;
-      mostrarEtapa(etapaAtual);
+  mudarEtapa(3);
+}
+
+function salvarEtapa3() {
+  const inputs = document.querySelectorAll('#lista-preparo input');
+  dadosReceita.preparo = Array.from(inputs).map(inp => inp.value).filter(val => val.trim() !== "");
+  dadosReceita.tempoPreparo = document.getElementById('tempo-preparo').value;
+
+  if (dadosReceita.preparo.length === 0 || !dadosReceita.tempoPreparo) {
+    alert("Adicione as etapas de preparo e o tempo!");
+    return;
+  }
+
+  mudarEtapa(4);
+}
+
+function salvarEtapa4() {
+  dadosReceita.dica = document.getElementById('dica').value;
+  mudarEtapa(5);
+}
+
+function finalizarReceita() {
+  const inputs = document.querySelectorAll('#lista-imagens input');
+  dadosReceita.imagens = [];
+
+  for (let inp of inputs) {
+    if (inp.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        dadosReceita.imagens.push(e.target.result);
+        
+        // Quando todas as imagens forem lidas, salva no localStorage
+        if (dadosReceita.imagens.length === inputs.length) {
+          salvarLocalStorage();
+        }
+      };
+      reader.readAsDataURL(inp.files[0]);
     } else {
-      // Finalizar e salvar no armazenamento geral
-      const receitas = JSON.parse(localStorage.getItem('receitas')) || [];
-      receitas.push(dadosReceita);
-      localStorage.setItem('receitas', JSON.stringify(receitas));
-      localStorage.removeItem('rascunhoReceita');
-      window.location.href = 'perfil.html'; // Redirecionar após cadastro
+      dadosReceita.imagens.push('');
+      if (dadosReceita.imagens.length === inputs.length) {
+        salvarLocalStorage();
+      }
     }
-  });
+  }
+}
 
-  btnVoltar.addEventListener('click', () => {
-    if (etapaAtual > 0) {
-      etapaAtual--;
-      mostrarEtapa(etapaAtual);
-    }
-  });
+function salvarLocalStorage() {
+  let receitas = JSON.parse(localStorage.getItem('receitas')) || [];
+  receitas.push(dadosReceita);
+  localStorage.setItem('receitas', JSON.stringify(receitas));
+  window.location.href = "receita.html";
+}
 
-  mostrarEtapa(etapaAtual);
-});
+function voltarEtapa() {
+  if (etapaAtual > 1) {
+    mudarEtapa(etapaAtual - 1);
+  }
+}
+
+function mudarEtapa(novaEtapa) {
+  document.getElementById(`etapa-${etapaAtual}`).style.display = 'none';
+  document.getElementById(`etapa-${novaEtapa}`).style.display = 'block';
+  etapaAtual = novaEtapa;
+  atualizarProgresso();
+}
+
+function atualizarProgresso() {
+  const bolinha = document.querySelector('.bolinha');
+  bolinha.style.left = `${(etapaAtual - 1) * 25}%`;
+}
+
+function adicionarIngrediente() {
+  const lista = document.getElementById('lista-ingredientes');
+  const index = lista.querySelectorAll('input').length + 1;
+  const input = document.createElement('input');
+  input.type = "text";
+  input.placeholder = `${index} -`;
+  lista.appendChild(input);
+}
+
+function adicionarEtapaPreparo() {
+  const lista = document.getElementById('lista-preparo');
+  const index = lista.querySelectorAll('input').length + 1;
+  const input = document.createElement('input');
+  input.type = "text";
+  input.placeholder = `${index} -`;
+  lista.appendChild(input);
+}
+
+function adicionarImagem() {
+  const lista = document.getElementById('lista-imagens');
+  const input = document.createElement('input');
+  input.type = "file";
+  input.accept = "image/*";
+  lista.appendChild(input);
+}
+
+function fecharModal() {
+  if (confirm("Deseja cancelar a criação da receita?")) {
+    window.location.href = "perfil.html";
+  }
+}

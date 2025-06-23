@@ -1,58 +1,129 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nova Receita</title>
-  <link rel="stylesheet" href="../css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Receita</title>
+  <link rel="stylesheet" href="../css/nova-receita.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <main class="cadastro-receita-container">
 
-    <!-- Etapa 1 - Informações básicas -->
-    <div class="etapa" id="etapa-1">
-      <h2>Criar nova receita</h2>
-      <input id="input-nome" placeholder="Nome da receita" />
-      <select id="select-categoria">
-        <option value="">Selecione a categoria</option>
-        <option value="Sobremesa">Sobremesa</option>
-        <option value="Almoço">Almoço</option>
-        <option value="Jantar">Jantar</option>
-        <option value="Lanches">Lanches</option>
-      </select>
-      <textarea id="textarea-sobre" placeholder="Sobre a receita..."></textarea>
+  <div class="overlay">
+    <div class="card-cadastro">
+      
+      <div class="header-card">
+        <p id="titulo-etapa">Criar nova receita</p>
+        <span class="fechar" onclick="fecharModal()">✕</span>
+      </div>
+
+      <div class="conteudo">
+
+        <div class="custom-progress">
+          <div class="progress-bar" role="progressbar"></div>
+          <div class="bolinha"></div>
+        </div>
+
+        <div id="etapa-1">
+          <label for="nome">Nome da receita:</label>
+          <input type="text" id="nome">
+
+          <label for="categoria">Categoria:</label>
+          <select id="categoria">
+            <option value="">Selecione</option>
+            <option value="Sobremesas">Sobremesas</option>
+            <option value="Almoço">Almoço</option>
+            <option value="Fitness">Fitness</option>
+            <option value="Lanches">Lanches</option>
+          </select>
+
+          <label for="sobre">Sobre a receita:</label>
+          <textarea id="sobre" maxlength="150" rows="4" oninput="atualizarContadorSobre()" placeholder="Descreva brevemente sua receita"></textarea>
+          <small id="contador-sobre">0/150</small>
+
+
+
+          <div class="botoes">
+            <button onclick="proximaEtapa()">Próximo</button>
+          </div>
+
+        </div>
+
+        <div id="etapa-2" style="display: none;">
+          <p class="inserir" onclick="adicionarIngrediente()">+ Inserir ingrediente</p>
+          <div id="lista-ingredientes">
+            <input type="text" placeholder="1 -">
+            <input type="text" placeholder="2 -">
+          </div>
+
+          <div class="botoes">
+            <div class="botoes-esquerda">
+              <button class="btn-voltar" onclick="voltarEtapa()">← Voltar</button>
+            </div>
+            <div class="botoes-direita">
+              <button onclick="salvarEtapa2()">Próximo</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="etapa-3" style="display: none;">
+          <p class="inserir" onclick="adicionarEtapaPreparo()">+ Inserir etapa de preparo</p>
+          <div id="lista-preparo">
+            <input type="text" placeholder="1 -">
+            <input type="text" placeholder="2 -">
+          </div>
+
+          <label for="tempo-preparo">Tempo de Preparo:</label>
+          <input type="text" id="tempo-preparo" placeholder="Ex: 30 min">
+
+          <div class="botoes">
+            <div class="botoes-esquerda">
+              <button class="btn-voltar" onclick="voltarEtapa()">← Voltar</button>
+            </div>
+            <div class="botoes-direita">
+              <button onclick="salvarEtapa3()">Próximo</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="etapa-4" style="display: none;">
+          <label for="dica">Dica do chef:</label>
+          <textarea id="dica" rows="5" maxlength="150" placeholder="Máximo 150 caracteres"></textarea>
+
+
+          <div class="botoes">
+            <div class="botoes-esquerda">
+              <button class="btn-voltar" onclick="voltarEtapa()">← Voltar</button>
+            </div>
+            <div class="botoes-direita">
+              <button onclick="salvarEtapa4()">Próximo</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="etapa-5" style="display: none;">
+          <p class="inserir" onclick="adicionarImagem()">+ Inserir imagem</p>
+          <div id="lista-imagens">
+            <input type="file" accept="image/*">
+            <input type="file" accept="image/*">
+          </div>
+
+          <div class="botoes">
+            <div class="botoes-esquerda">
+              <button class="btn-voltar" onclick="voltarEtapa()">← Voltar</button>
+            </div>
+            <div class="botoes-direita">
+              <button onclick="finalizarReceita()">Finalizar</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-
-    <!-- Etapa 2 - Ingredientes -->
-    <div class="etapa" id="etapa-2" style="display: none;">
-      <h2>Inserir Ingredientes</h2>
-      <input class="input-ingrediente" placeholder="1 - Ingrediente" />
-      <input class="input-ingrediente" placeholder="2 - Ingrediente" />
-      <!-- Pode adicionar botão para inserir mais -->
-    </div>
-
-    <!-- Etapa 3 - Modo de preparo -->
-    <div class="etapa" id="etapa-3" style="display: none;">
-      <h2>Modo de Preparo</h2>
-      <input class="input-etapa-preparo" placeholder="1 - Etapa de preparo" />
-      <input class="input-etapa-preparo" placeholder="2 - Etapa de preparo" />
-      <input id="input-tempo" placeholder="Tempo de preparo (ex: 40min)" />
-    </div>
-
-    <!-- Etapa 4 - Dica do Chef -->
-    <div class="etapa" id="etapa-4" style="display: none;">
-      <h2>Dica do Chef</h2>
-      <textarea id="textarea-dica" placeholder="Digite uma dica especial..."></textarea>
-    </div>
-
-    <!-- Navegação -->
-    <div class="navegacao">
-      <button id="btn-voltar">← Voltar</button>
-      <button id="btn-proximo">Próximo →</button>
-    </div>
-
-  </main>
+  </div>
 
   <script src="../js/nova-receita.js"></script>
 </body>
 </html>
+
+

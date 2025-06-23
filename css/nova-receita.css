@@ -1,0 +1,233 @@
+/* =========================
+   VARIÁVEIS GLOBAIS
+========================= */
+:root {
+  --bg-color: #FFE3CD;
+  --navbar-color: #FEC89A;
+  --search-bg: #FEF6F0;
+  --text-color: #5B5B5B;
+  --placeholder: #BBBBBB;
+  --lighter-grey: #e6e6e6;
+  --hover:rgb(0, 68, 255) ;
+
+  --bolinha-color: #FFB088;
+
+  --font-title: 2rem;
+  --font-subtitle: 1.5rem;
+  --font-regular: 1rem;
+  --font-navbar: 0.95rem;
+  --font-placeholder: 0.875rem;
+  --font-small: 0.75rem;
+}
+
+
+/* =========================
+   ESTRUTURA DO MODAL
+========================= */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-cadastro {
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  width: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-cadastro button:not(.btn-voltar) {
+  background-color: var(--navbar-color);
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: var(--font-navbar);
+  color: var(--text-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.068);
+}
+
+.header-card {
+  background-color: var(--navbar-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  color: var(--text-color);
+  font-size: var(--font-regular);
+  font-weight: 600;
+  position: relative;
+}
+
+.header-card p {
+  margin: 0;
+  color: var(--text-color);
+  text-align: center;
+  width: 100%;
+}
+
+.fechar {
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: var(--search-bg);
+  position: absolute;
+  right: 1rem;
+}
+
+.card-cadastro > .conteudo {
+  padding: 1.5rem;
+}
+
+
+/* =========================
+   BARRA DE PROGRESSO
+========================= */
+
+.custom-progress {
+  position: relative;
+  height: 6px;
+  background-color: var(--search-bg);
+  border-radius: 3px;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.custom-progress .progress-bar {
+  height: 100%;
+  background-color: var(--navbar-color);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.custom-progress .bolinha {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  background-color: var(--bolinha-color);
+  border-radius: 50%;
+  transition: left 0.3s ease;
+  z-index: 1;
+}
+
+
+/* =========================
+   FORMULÁRIOS
+========================= */
+
+label {
+  display: block;
+  margin-top: 1rem;
+  color: var(--text-color);
+  font-size: var(--font-regular);
+  font-weight: 600;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--search-bg);
+  margin-top: 0.3rem;
+  font-size: var(--font-regular);
+  color: var(--text-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.068);
+}
+
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--search-bg);
+  margin-top: 0.3rem;
+  font-size: var(--font-regular);
+  color: var(--text-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.068);
+  resize: vertical;
+}
+
+
+.linha-dupla {
+  display: flex;
+  gap: 1rem;
+}
+
+.linha-dupla .campo {
+  flex: 1;
+}
+
+
+/* =========================
+   BOTÕES E LINKS
+========================= */
+
+.botoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.botoes-esquerda {
+  display: flex;
+  align-items: center;
+}
+
+.botoes-direita {
+  display: flex;
+  align-items: center;
+}
+
+.btn-voltar {
+  all: unset;
+  cursor: pointer;
+  font-size: var(--font-navbar);
+  color: var(--text-color);
+  text-decoration: underline;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.btn-voltar:hover {
+  color: var(--hover);
+}
+
+
+/* =========================
+   INSERIR INGREDIENTES
+========================= */
+
+.inserir {
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  display: inline-block;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.inserir:hover {
+  color: var(--hover);
+}
+
+#lista-ingredientes input, #lista-preparo input, #lista-imagens input{
+  margin-bottom: 0.5rem;
+}
+
+
+
