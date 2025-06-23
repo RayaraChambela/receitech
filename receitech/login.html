@@ -22,24 +22,25 @@
 
         <form id="form-login">
             <h2>Acesse sua conta</h2>
-            <div class="form-group">
+            <div class="form">
                 <label for="login">LOGIN</label>
                 <input type="text" id="login" placeholder="Login de usuário" required>
             </div>
-            <div class="form-group">
+            <div class="form">
                 <label for="senha">SENHA</label>
                 <input type="password" id="senha" placeholder="Login de usuário" required>
             </div>
-            <div class="form-group">
-                <input type="checkbox" id="check">
-                <label for="check">Lembrar usuário</label>
+            <div class="form-checkbox">
+                <label>
+                    <input type="checkbox" id="check">
+                    Lembrar usuário
+                </label>
             </div>
             <div class="botao-container">
                 <button type="submit">Login</button>
             </div>
-
-
         </form>
+        <p id="mensagem-erro" ></p>
     </div>
 
     <footer id="footer">

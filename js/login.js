@@ -13,7 +13,7 @@ if (login === usuarioCorreto && senha === senhaCorreta) {
     mensagemErro.textContent = "";
     alert("Login realizado com sucesso!");
     
-    window.location.href = "dashboard.html";
+    window.location.href = "index.html";
 } else {
     mensagemErro.textContent = "Login ou senha incorretos.";
 }

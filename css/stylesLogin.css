@@ -39,7 +39,7 @@ body {
     margin-left: 40px;
 }
 
-.form-group {
+.form {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
@@ -67,8 +67,9 @@ input {
     width: 330px;
 }
 
-#check {
-    margin-left: 5px;
+p {
+    color: red; 
+    text-align: center;
 }
 
 button {
@@ -85,9 +86,7 @@ button {
     justify-content: center;
     align-items: center;
     display: flex;
-
 }
-
 
 button:hover {
     background-color: #FFE3CD;
