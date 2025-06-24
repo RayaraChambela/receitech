@@ -525,18 +525,6 @@ span {
   object-fit: cover;
   display: block;
 }
-
-
-.footer {
-  background-color: var(--navbar-color);
-  text-align: center;
-  padding: 1rem;
-  font-size: var(--font-small);
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 40px;
-}
+  
 
 

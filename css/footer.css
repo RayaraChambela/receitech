@@ -1,0 +1,9 @@
+.footer {
+  background-color: var(--navbar-color);
+  text-align: center;
+  justify-content: center;
+  padding: 5px;
+  font-size: var(--font-small);
+  font-size: 13px;
+  height: 30px;
+}
