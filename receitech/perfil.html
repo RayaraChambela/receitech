@@ -6,14 +6,14 @@
   <title>Perfil do Usuário</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/stylesPerfil.css" />
+  <link rel="stylesheet" href="../css/stylesPerfil.css"/ />
 </head>
 <body>
   <!-- Navbar padrão -->
   <header class="navbar">
     <div class="container">
       <a href="index.html">
-        <img src="/assets/logo-branca.png" alt="Logo Receita Tech" class="logo-img" />
+        <img src="../assets/logo-branca.png" alt="Logo Receita Tech" class="logo-img" />
       </a>
 
       <div class="search-container">
@@ -46,29 +46,21 @@
       <img src="/assets/img-fundo-perfil.png" alt="banner" id="banner">
     </div>
 
-<<<<<<< HEAD
     <div class="perfil-content">
       <div class="perfil-foto">
         <img src="/assets/icon-img-perfil.png" alt="Foto de perfil" id="img-perfil">
-        <button class="camera-btn">
+        <button class="camera-btn" onclick="fecharPopupEditarPerfil()">
           <img src="/assets/icon-camera.png" alt="Câmera" id="img-camera" onclick="abrirPopup()">
         </button>
-=======
-    <!-- Posts e botão de novo post -->
-    <section class="perfil-posts">
-      <div class="post-header">
-        <span><strong>24</strong> Posts</span>
-        <a href="nova-receita.html" class="btn-novo-post">➕ Novo Post</a>
->>>>>>> 62e916227b86065e598be4ad622ee0217feb7d4d
       </div>
 
-      <!-- Popup oculto -->
+      <!-- Popup Editar Foto de Perfil -->
       <div class="popup-overlay" id="popup">
         <div class="popup">
           <div id="navbar-popup">
             <div class="centered-text">Editar Foto de Perfil</div>
             <button class="btn-fechar" onclick="fecharPopup()">
-              <img src="/assets/icon-sair.png" alt="Sair" id="img-btn-sair">
+              <img src="/assets/icon-sair.png" alt="Sair" class="img-btn-sair">
             </button>
           </div>
 
@@ -93,6 +85,37 @@
         </div>
         <p id="email-usuario">palmirinhareceitas@gmail.com</p>
       </div>
+
+
+      <!-- Popup Editar Perfil -->
+        <div class="popup-overlay" id="popup-editar">
+          <div class="popup-editar">
+            <div class="popup-header">
+              <h3>Editar Perfil</h3>
+              <button class="fechar-popup" onclick="fecharPopupEditarPerfil()"><img src="../assets/icon-sair.png" alt="" class="img-btn-sair"></button>
+            </div>
+
+            <form>
+              <label for="nome" class="label-perfil">NOME</label>
+              <input type="text" id="nome" placeholder="Digite o seu nome">
+
+              <label for="email" class="label-perfil">E-MAIL</label>
+              <input type="email" id="email" placeholder="Digite o seu e-mail">
+
+              <label for="senha" class="label-perfil">SENHA</label>
+              <input type="password" id="senha" placeholder="Digite a sua senha">
+
+              <button type="submit" class="btn-salvar">Salvar Alterações</button>
+            </form>
+
+            <p class="aviso">
+              Quer excluir sua conta? <br>Essa ação não pode ser desfeita.>
+            </p>
+            <button class="btn-excluir">Excluir minha conta</button>
+          </div>
+        </div>
+
+
 
       <!-- Posts e botão de novo post -->
       <section class="perfil-posts">

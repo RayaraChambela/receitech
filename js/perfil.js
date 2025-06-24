@@ -21,13 +21,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-function abrirPopup() {
-  document.getElementById("popup").style.display = "flex";
-}
+  function abrirPopup() {
+    document.getElementById("popup").style.display = "flex";
+  }
 
-function fecharPopup() {
-  document.getElementById("popup").style.display = "none";
-}
+  function fecharPopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+
+  function abrirPopupEditarPerfil() {
+    document.getElementById("popup-editar").style.display = "flex"; // corrigido
+  }
+
+  function fecharPopupEditarPerfil() {
+    document.getElementById("popup-editar").style.display = "none";
+  }
+
+  document.getElementById("edit-perfil").addEventListener("click", function(e) {
+    e.preventDefault();
+    abrirPopupEditarPerfil();
+  });
 
 
 
