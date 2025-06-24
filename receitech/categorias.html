@@ -3,76 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Receita Tech</title>
+  <title>Receitas por Categoria</title>
   <link rel="stylesheet" href="../css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="logo">Recei<span>Tech</span></div>
-    <div class="search-container">
-      <select class="dropdown">
-        <option value="">Categorias</option>
-        <option value="sobremesas">Sobremesas</option>
-        <option value="almoco">Almoço</option>
-        <option value="fitness">Fitness</option>
-        <option value="lanches">Lanches</option>
-      </select>
-      <input type="text" placeholder="Pesquise a sua receita..." />
-    </div>
-    <div class="user-icon">
-      <img src="user.png" alt="Usuário" />
-    </div>
-  </header>
 
-  <!-- RECEITAS -->
-  <main class="receitas-container">
-    <div class="receita-card">
-      <img src="BOLO DE LARANJA.jpg" alt="Spaghetti alla Burrata" />
-      <h3>Spaghetti alla Burrata</h3>
-      <p>🕒 39 mins</p>
-    </div>
-    <div class="receita-card">
-      <img src="tartare.jpg" alt="Stake Tartare" />
-      <h3>Stake Tartare</h3>
-      <p>🕒 39 mins</p>
-    </div>
-    <div class="receita-card">
-      <img src="filet.jpg" alt="Filet Mignon" />
-      <h3>Filet Mignon</h3>
-      <p>🕒 58 mins</p>
-    </div>
-    <div class="receita-card">
-      <img src="spaghetti2.jpg" alt="Spaghetti com Cogumelos" />
-      <h3>Spaghetti com Cogumelos</h3>
-      <p>🕒 39 mins</p>
-    </div>
-  </main>
+<header class="navbar">
+  <div class="container">
+    <a href="index.html">
+      <img src="../img/logo.png" alt="Logo Receita Tech" class="logo-img" />
+    </a>
+  </div>
+</header>
 
-  <!-- CATEGORIAS -->
-  <section class="categorias-container">
-    <div class="categoria">
-      <img src="ChatGPT Image 20 de jun. de 2025, 22_48_21.png" alt="Sobremesas" />
-      <p>Sobremesas</p>
-    </div>
-    <div class="categoria">
-      <img src="BOLO DE LARANJA.jpg" alt="Almoço" />
-      <p>Almoço</p>
-    </div>
-    <div class="categoria">
-      <img src="fitness.jpg" alt="Fitness" />
-      <p>Fitness</p>
-    </div>
-    <div class="categoria">
-      <img src="lanches.jpg" alt="Lanches" />
-      <p>Lanches</p>
-    </div>
-  </section>
+<div class="container">
+  <h1 id="titulo-categoria"></h1>
+  <div id="resultado-categoria" class="receitas-container"></div>
+</div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>&copy; 2025 Receita Tech. Todos os direitos reservados.</p>
-  </footer>
+<script src="../js/categorias.js"></script>
+<script src="../js/categoria-resultados.js"></script>
 </body>
 </html>
