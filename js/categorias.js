@@ -59,6 +59,10 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
           </div>
         `;
+        card.addEventListener("click", () => {
+            window.location.href = `receita.html?id=${receita.id}`;
+        });
+
         container.appendChild(card);
       });
     }
