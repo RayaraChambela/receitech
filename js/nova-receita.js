@@ -9,7 +9,8 @@ let dadosReceita = {
   tempoPreparo: '',
   dica: '',
   imagens: [],
-  autor: ''
+  autor: '',
+  emailAutor: ''
 };
 
 function proximaEtapa() {
@@ -90,22 +91,24 @@ function finalizarReceita() {
   }
 }
 
-
-
 function salvarLocalStorage() {
+  const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
+
+  if (!usuario.email) {
+    alert("Usuário não encontrado. Faça login novamente.");
+    window.location.href = "index.html";
+    return;
+  }
+
   let receitas = JSON.parse(localStorage.getItem('receitas')) || [];
 
-  // Gera um id único com base no timestamp
   dadosReceita.id = Date.now();
-
-  // Recupera o nome do usuário logado, se existir
-  const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
   dadosReceita.autor = usuario.nome || 'Anônimo';
+  dadosReceita.emailAutor = usuario.email;
 
   receitas.push(dadosReceita);
   localStorage.setItem('receitas', JSON.stringify(receitas));
 
-  // Redireciona passando o ID da receita
   window.location.href = `receita.html?id=${dadosReceita.id}`;
 }
 
@@ -158,4 +161,3 @@ function fecharModal() {
     window.location.href = "perfil.html";
   }
 }
-

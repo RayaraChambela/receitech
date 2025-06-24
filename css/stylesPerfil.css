@@ -503,12 +503,13 @@ span {
 
 .feed-receitas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 3px;
+  grid-template-columns: repeat(3, 1fr); /* Sempre 3 por linha */
+  gap: 10px;
   max-width: 800px;
   margin: 30px auto;
   padding: 0 1rem;
 }
+
 
 .receita-post {
   width: 100%;

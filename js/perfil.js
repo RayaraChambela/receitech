@@ -6,16 +6,24 @@ document.addEventListener('DOMContentLoaded', () => {
     btnExcluir.addEventListener('click', () => {
       const confirmacao = confirm("Tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.");
       if (confirmacao) {
-        const usuarioLogado = localStorage.getItem('usuario');
-        if (usuarioLogado) {
-          const { email } = JSON.parse(usuarioLogado);
-          let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-          usuarios = usuarios.filter(u => u.email !== email);
-          localStorage.setItem('usuarios', JSON.stringify(usuarios));
-        }
+
+        let receitas = JSON.parse(localStorage.getItem('receitas')) || [];
+        receitas = receitas.map(receita => {
+          if (receita.emailAutor === usuario.email) {
+            receita.autor = 'Anônimo';
+            receita.emailAutor = '';
+          }
+          return receita;
+        });
+        localStorage.setItem('receitas', JSON.stringify(receitas));
+
+        let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+        usuarios = usuarios.filter(u => u.email !== usuario.email);
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
         localStorage.removeItem('usuario');
         localStorage.removeItem('usuarioLogado');
+
         alert("Sua conta foi excluída com sucesso.");
         window.location.href = 'index.html';
       }
@@ -106,6 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbarIcon = document.querySelector('.user-icon img');
     if (navbarIcon) navbarIcon.src = '../assets/icon-img-perfil.png';
   });
+
+  carregarFeed();
 });
 
 function abrirPopup() {
@@ -124,15 +134,36 @@ function fecharPopupEditarPerfil() {
   document.getElementById("popup-editar").style.display = "none";
 }
 
+function carregarFeed() {
+  const feed = document.querySelector('.feed-receitas');
+  feed.innerHTML = '';
 
+  const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
+  const receitas = JSON.parse(localStorage.getItem('receitas')) || [];
+  let imagensRenderizadas = 0;
 
+  receitas.forEach(receita => {
+    if (receita.emailAutor === usuario.email && receita.imagens && receita.imagens.length > 0) {
+      const div = document.createElement('div');
+      div.classList.add('receita-post');
 
+      const link = document.createElement('a');
+      link.href = `receita.html?id=${receita.id}`;
 
+      const img = document.createElement('img');
+      img.src = receita.imagens[0];
+      img.alt = receita.nome;
+      img.classList.add('receita-feed-img');
 
+      link.appendChild(img);
+      div.appendChild(link);
+      feed.appendChild(div);
 
+      imagensRenderizadas++;
+    }
+  });
 
-
-
-
-
-
+  if (imagensRenderizadas === 0) {
+    feed.innerHTML = `<p class="mensagem-vazio">Nenhuma receita publicada ainda.</p>`;
+  }
+}
