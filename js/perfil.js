@@ -73,6 +73,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       localStorage.setItem('usuario', JSON.stringify(usuario));
 
+      // Atualiza no array de usuários
+      let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+      usuarios = usuarios.map(u => {
+        if (u.email === usuario.email) {
+          return { ...usuario };
+        }
+        return u;
+      });
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
       if (nomeUsuario) nomeUsuario.textContent = novoNome;
       if (emailUsuario) emailUsuario.textContent = novoEmail;
 
@@ -94,6 +104,16 @@ document.addEventListener('DOMContentLoaded', () => {
         usuario.fotoPerfil = e.target.result;
         localStorage.setItem('usuario', JSON.stringify(usuario));
 
+        // Atualiza no array de usuários
+        let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+        usuarios = usuarios.map(u => {
+          if (u.email === usuario.email) {
+            return { ...usuario };
+          }
+          return u;
+        });
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
         const imgPerfil = document.getElementById('img-perfil');
         if (imgPerfil) imgPerfil.src = usuario.fotoPerfil;
       };
@@ -107,6 +127,16 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('remover-foto').addEventListener('click', () => {
     delete usuario.fotoPerfil;
     localStorage.setItem('usuario', JSON.stringify(usuario));
+
+    // Atualiza no array de usuários
+    let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    usuarios = usuarios.map(u => {
+      if (u.email === usuario.email) {
+        return { ...usuario };
+      }
+      return u;
+    });
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
     const imgPerfil = document.getElementById('img-perfil');
     if (imgPerfil) imgPerfil.src = '../assets/icon-img-perfil.png';

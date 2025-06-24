@@ -16,19 +16,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     filtradas.forEach(receita => {
         const card = document.createElement('div');
-        card.classList.add('receita-card');
+        card.classList.add('card-receita');
 
         card.innerHTML = `
-            <img src="${receita.imagem}" alt="${receita.nome}" class="receita-imagem" />
-            <div class="receita-info">
+            <img src="${receita.imagem}" alt="${receita.nome}">
+            <div class="card-receita-conteudo">
                 <h3>${receita.nome}</h3>
                 <div class="tempo">
-                    <img src="../assets/icone-relogio.svg" alt="Relógio" />
+                    <img src="../assets/icone-relogio.svg" alt="Relógio">
                     <span>${receita.tempoPreparo}</span>
                 </div>
             </div>
         `;
-        
+
+        card.addEventListener('click', () => {
+            localStorage.setItem('receitaSelecionada', JSON.stringify(receita));
+            window.location.href = 'detalhe-receita.html';
+        });
+
         container.appendChild(card);
     });
 });

@@ -47,30 +47,97 @@ main {
 }
 
 /* =========================
-   CARROSSEL
+   NAVBAR
 ========================= */
-.carrossel-wrapper {
-  overflow: hidden;
-  position: relative;
-  padding: 2rem;
-  margin-bottom: 100px;
-}
-
-.carrossel-track {
+.navbar {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--navbar-color);
+  padding: 1rem 4rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.logo {
+  font-size: var(--font-subtitle);
+  font-weight: bold;
+}
+
+.logo span {
+  font-weight: normal;
+}
+
+.search-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.search-container input {
+  background-color: var(--search-bg);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: var(--font-regular);
+  width: 300px;
+  color: var(--text-color);
+}
+
+.search-container input::placeholder {
+  color: var(--placeholder);
+}
+
+.categorias-dropdown .dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: var(--font-navbar);
+  padding: 0.5rem 1rem;
+}
+
+.categorias-dropdown .dropdown-toggle::after {
+  color: var(--text-color); /* cor da setinha */
+}
+
+.categorias-dropdown .dropdown-menu {
+  background-color: var(--search-bg);
+  border-radius: 8px;
+  font-size: var(--font-regular);
+  color: var(--text-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.categorias-dropdown .dropdown-item {
+  color: var(--text-color);
+}
+
+.categorias-dropdown .dropdown-item:hover {
+  background-color: var(--lighter-grey);
+}
+
+
+.user-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--text-color);
+}
+
+.receitas-grid {
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
-  width: max-content;
-  animation: scrollLeft 45s linear infinite;
-}
-
-.carrossel-wrapper:hover .carrossel-track {
-  animation-play-state: paused;
-}
-
-
-@keyframes scrollLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  justify-content: center;
+  padding: 2rem;
 }
 
 
@@ -85,6 +152,13 @@ main {
   border-radius: 0;
   flex-shrink: 0;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.receita-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
 }
 
 .receita-imagem {
@@ -97,8 +171,7 @@ main {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 100%;
-  padding: 6rem ;
+  padding: 3rem 1rem 1rem 1rem;
   text-align: center;
   color: white;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.818), transparent);
@@ -133,7 +206,7 @@ main {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  padding: 2rem;
+  padding: 2rem 2rem 0.4rem 2rem;
 }
 
 .categoria {
@@ -150,17 +223,48 @@ main {
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  outline: none;
 }
 
 .btn-categoria {
+  background: none;
   border: none;
-  background-color: transparent;
+  outline: none;
+  padding: 0;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transition: transform 0.3s ease;
 }
 
 .btn-categoria:hover {
   transform: scale(1.1);
+}
+
+
+.btn-categoria img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-categoria:focus {
+  outline: none;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  background-color: var(--navbar-color);
+  text-align: center;
+  padding: 1rem;
+  font-size: var(--font-small);
 }
 
 
