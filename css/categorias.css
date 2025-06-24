@@ -1,10 +1,38 @@
+:root {
+  --bg-color: #FFE3CD;
+  --navbar-color: #FEC89A;
+  --search-bg: #FEF6F0;
+  --text-color: #5B5B5B;
+  --placeholder: #BBBBBB;
+  --lighter-grey: #e6e6e6;
+
+  --font-title: 2rem;
+  --font-subtitle: 1.5rem;
+  --font-regular: 1rem;
+  --font-navbar: 0.95rem;
+  --font-placeholder: 0.875rem;
+  --font-small: 0.75rem;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Montserrat', sans-serif;
+}
+
 main {
+  flex: 1;
   padding: 40px 80px;
 }
 
-h2 {
+#titulo-categoria {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-color);
   margin-bottom: 40px;
 }
@@ -18,7 +46,6 @@ h2 {
 
 .card-receita {
   width: 240px;
-  font-size: 0.95rem;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -26,19 +53,8 @@ h2 {
   display: flex;
   flex-direction: column;
   transition: transform 0.2s ease;
+  cursor: pointer;
 }
-
-.card-receita h3 {
-  font-size: 0.95rem; 
-  color: var(--text-color);
-  margin: 0;
-  font-weight: 700;
-  text-align: left;
-  white-space: nowrap;        
-  overflow: hidden;           
-  text-overflow: ellipsis;    
-}
-
 
 .card-receita:hover {
   transform: scale(1.03);
@@ -58,15 +74,16 @@ h2 {
   gap: 8px;
 }
 
-.card-receita .tempo {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; 
-  gap: 6px;
+.card-receita h3 {
+  font-size: 0.95rem;
   color: var(--text-color);
+  margin: 0;
   font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
 
 .card-receita .tempo {
   display: flex;
@@ -75,5 +92,9 @@ h2 {
   font-size: 0.9rem;
   color: var(--text-color);
   font-weight: 700;
-  text-align: left;
+}
+
+.card-receita .tempo img {
+  width: 16px;
+  height: 16px;
 }
