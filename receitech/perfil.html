@@ -4,76 +4,117 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Perfil do Usuário</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="/css/stylesPerfil.css" />
 </head>
 <body>
   <!-- Navbar padrão -->
   <header class="navbar">
-  <div class="container">
-    <a href="index.html">
-      <img src="../img/logo.png" alt="Logo Receita Tech" class="logo-img" />
-    </a>
+    <div class="container">
+      <a href="index.html">
+        <img src="/assets/logo-branca.png" alt="Logo Receita Tech" class="logo-img" />
+      </a>
 
-    <div class="search-container">
-      <div class="dropdown categorias-dropdown">
-        <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-          Categorias
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <li><button class="dropdown-item" type="button">Sobremesas</button></li>
-          <li><button class="dropdown-item" type="button">Almoço</button></li>
-          <li><button class="dropdown-item" type="button">Fitness</button></li>
-          <li><button class="dropdown-item" type="button">Lanches</button></li>
-        </ul>
+      <div class="search-container">
+        <div class="dropdown categorias-dropdown">
+          <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+            Categorias
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li><button class="dropdown-item" type="button">Sobremesas</button></li>
+            <li><button class="dropdown-item" type="button">Almoço</button></li>
+            <li><button class="dropdown-item" type="button">Fitness</button></li>
+            <li><button class="dropdown-item" type="button">Lanches</button></li>
+          </ul>
+        </div>
+
+        <input type="text" placeholder="Pesquise a sua receita..." />
       </div>
 
-      <input type="text" placeholder="Pesquise a sua receita..." />
+      <div class="user-icon">
+        <a href="#" id="user-link">
+          <img src="/assets/icon-img-perfil.png" alt="Usuário" />
+        </a>
+      </div>
     </div>
-
-  <div class="user-icon">
-    <a href="#" id="user-link">
-      <img src="../assets/user-padrão.svg" alt="Usuário" />
-    </a>
-  </div>
-
-  </div>
-</header>
+  </header>
 
   <!-- Seção de perfil -->
   <main class="perfil-container">
-    <div class="perfil-banner"></div>
-    <div class="perfil-content">
-      <div class="perfil-foto">
-        <img src="../img/foto-perfil.png" alt="Foto de perfil">
-        <button class="camera-btn">📷</button>
-      </div>
-      <div class="perfil-info">
-        <h2 id="nome-usuario">Palmirinha</h2>
-        <p id="email-usuario">palmirinhareceitas@gmail.com</p>
-      </div>
-      <button id="btn-excluir-conta" class="btn-excluir">Excluir minha conta</button>
+    <div class="perfil-banner">
+      <img src="/assets/img-fundo-perfil.png" alt="banner" id="banner">
     </div>
 
-    <!-- Posts e botão de novo post -->
-    <section class="perfil-posts">
-      <div class="post-header">
-        <span><strong>24</strong> Posts</span>
-        <button class="novo-post-btn">➕ Novo Post</button>
+    <div class="perfil-content">
+      <div class="perfil-foto">
+        <img src="/assets/icon-img-perfil.png" alt="Foto de perfil" id="img-perfil">
+        <button class="camera-btn">
+          <img src="/assets/icon-camera.png" alt="Câmera" id="img-camera" onclick="abrirPopup()">
+        </button>
       </div>
+
+      <!-- Popup oculto -->
+      <div class="popup-overlay" id="popup">
+        <div class="popup">
+          <div id="navbar-popup">
+            <div class="centered-text">Editar Foto de Perfil</div>
+            <button class="btn-fechar" onclick="fecharPopup()">
+              <img src="/assets/icon-sair.png" alt="Sair" id="img-btn-sair">
+            </button>
+          </div>
+
+
+          <input type="file" id="imagem" class="input-arquivo" accept="image/*">
+          <label for="imagem" class="label-imagem">+ Inserir Imagem</label>
+
+          <div id="excluir">
+            <img src="/assets/icon-excluir.png" alt="Excluir" id="img-btn-excluir">
+            <p id="remover-foto">Remover foto atual</p>
+          </div>
+          <div>
+            <button id="salvar">Salvar Alterações</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="perfil-info">
+        <div class="perfil-nome-edit">
+          <h2 id="nome-usuario">PALMIRINHA</h2>
+          <a href="#"><img src="/assets/icon-edit-perfil.png" alt="Editar perfil" id="edit-perfil"></a>
+        </div>
+        <p id="email-usuario">palmirinhareceitas@gmail.com</p>
+      </div>
+
+      <!-- Posts e botão de novo post -->
+      <section class="perfil-posts">
+        <div class="post-box">
+          <div class="post-header">
+            <span><strong>24</strong> Posts</span>
+            <button class="novo-post-btn">
+              <img src="/assets/icon-novo-post.png" alt="Novo Post" id="novo-post"> Novo Post
+            </button>
+          </div>
+        </div>
+      </section>
 
       <!-- Feed de receitas -->
       <div class="feed-receitas">
-        <img src="../img/bolinho.jpg" class="receita-feed-img" alt="Receita 1">
-        <img src="../img/cafe.jpg" class="receita-feed-img" alt="Receita 2">
-        <img src="../img/bolo.jpg" class="receita-feed-img" alt="Receita 3">
+        <div class="receita-post">
+          <img src="/assets/img-bolinho.png" class="receita-feed-img" alt="Receita 1">
+        </div>
+        <div class="receita-post">
+          <img src="/assets/img-cafe.png" class="receita-feed-img" alt="Receita 2">
+        </div>
+        <div class="receita-post">
+          <img src="/assets/img-bolo-milho.png" class="receita-feed-img" alt="Receita 3">
+        </div>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer class="footer">
-    <p>&copy; 2025 Receita Tech. Todos os direitos reservados.</p>
+    <p id="footer">&copy; 2025 Receita Tech. Todos os direitos reservados.</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
