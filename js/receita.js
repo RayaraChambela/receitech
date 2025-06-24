@@ -17,8 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  // Preenche campos da receita
   document.getElementById("nome-receita").textContent = receita.nome;
-  document.getElementById("autor-receita").textContent = `Autor: ${receita.autor}`;
+  document.getElementById("autor-receita").textContent = receita.autor;
   document.getElementById("tempo-preparo").textContent = receita.tempoPreparo;
   document.getElementById("sobre-receita").textContent = receita.sobre;
   document.getElementById("dica-chef").textContent = receita.dica;
@@ -37,6 +38,16 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     imagem.style.display = "none";
   }
+
+  // Busca a imagem do autor dinamicamente do localStorage de usuários
+  const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+  const usuarioAutor = usuarios.find(u => u.email === receita.emailAutor);
+
+  const imgAutor = document.querySelector(".detalhes-receita a img");
+
+  if (usuarioAutor && usuarioAutor.fotoPerfil) {
+    imgAutor.src = usuarioAutor.fotoPerfil;
+  } else if (imgAutor) {
+    imgAutor.src = "../assets/icon-perfil.svg"; // Foto padrão caso não tenha imagem
+  }
 });
-
-
