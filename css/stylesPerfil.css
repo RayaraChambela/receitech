@@ -41,14 +41,6 @@ main {
   flex: 1;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--navbar-color);
-  padding: 1rem 4rem;
-}
-
 .container {
   width: 100%;
   height: 40px;
@@ -175,7 +167,7 @@ img {
   object-fit: cover;
 }
 
-#img-camera {
+.img-camera {
   width: 50px;
 }
 
@@ -479,16 +471,6 @@ span {
    RESPONSIVIDADE
 ======================== */
 @media (max-width: 992px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem 2rem;
-    gap: 1rem;
-  }
-
-  .search-container input {
-    width: 100%;
-  }
 
   .categorias-container {
     flex-wrap: wrap;
@@ -504,7 +486,7 @@ span {
     height: 150px;
   }
 
-  #img-camera {
+  .img-camera {
     width: 40px;
   }
 
@@ -520,6 +502,15 @@ span {
 
   .feed-receitas {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  #img-perfil {
+    margin-top: 35px;
+  }
+
+  .img-camera {
+    margin-right: -30px;
+    margin-bottom: -80px;
   }
 }
 
@@ -554,10 +545,13 @@ span {
   #img-perfil {
     width: 120px;
     height: 120px;
+    margin-top: 10px;
   }
 
-  #img-camera {
+  .img-camera {
     width: 35px;
+    margin-top: -30px;
+    margin-right: 4px;
   }
 
   .popup-editar {
@@ -580,6 +574,10 @@ span {
     margin-left: 0;
   }
 
+  .perfil-foto {
+    margin-top: 70px;
+  }
+
   #nome-usuario {
     font-size: 20px;
   }
@@ -591,9 +589,18 @@ span {
   .camera-btn {
     right: 0;
   }
+
+  .perfil-info {
+    font-size: 12px;
+  }
+
+ .num-post {
+    margin-left: 50px;
+ } 
+
+
+
+
 }
-
-
-
 
 
