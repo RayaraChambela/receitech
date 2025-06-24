@@ -4,11 +4,14 @@
   --search-bg: #FEF6F0;
   --text-color: #5B5B5B;
   --placeholder: #BBBBBB;
+  --lighter-grey: #e6e6e6;
 
   --font-title: 2rem;
   --font-subtitle: 1.5rem;
   --font-regular: 1rem;
-  --font-small: 0.9rem;
+  --font-navbar: 0.95rem;
+  --font-placeholder: 0.875rem;
+  --font-small: 0.75rem;
 }
 
 body {
@@ -26,19 +29,20 @@ body {
   padding: 1rem 2rem;
 }
 
-.logo {
-  font-size: var(--font-subtitle);
-  font-weight: bold;
-}
-
-.logo span {
-  font-weight: normal;
+.logo-img {
+  width: 150px;
 }
 
 .user-icon img {
   width: 35px;
   height: 35px;
   border-radius: 50%;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 input[type="text"] {
@@ -50,70 +54,76 @@ input[type="text"] {
   color: var(--text-color);
 }
 
-.container-receita {
-  max-width: 800px;
-  margin: 2rem auto;
-  background-color: var(--search-bg);
-  padding: 2rem;
-  border-radius: 10px;
+.voltar-container {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
 }
 
 .voltar {
   background: none;
   border: none;
-  color: var(--text-color);
-  font-size: 1rem;
   cursor: pointer;
-  margin-bottom: 1rem;
-  text-decoration: underline;
+}
+
+.voltar img {
+  width: 25px;
+}
+
+.container-receita {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: var(--search-bg);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 h1#nome-receita {
-  margin-bottom: 1.5rem;
   font-size: var(--font-title);
-}
-
-.receita-topo {
-  display: flex;
-  gap: 1.5rem;
+  text-align: center;
   margin-bottom: 2rem;
-  align-items: flex-start;
+  font-weight: bold;
 }
 
-.receita-topo img {
-  width: 500px;
-  height: 600px;
-  border-radius: 8px;
-  background-color: #ccc;
+.imagem-central {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.imagem-central img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
   object-fit: cover;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.034);
 }
 
-.sobre-receita {
-  flex: 1;
+.detalhes-receita {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.sobre-receita h2 {
-  margin-top: 0;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.sobre-receita p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.detalhes {
-  margin-top: 1rem;
-  display: flex;
-  gap: 1rem;
-  font-size: var(--font-small);
-  color: var(--text-color);
   align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  font-size: 1rem; /* Tamanho base maior */
 }
+
+.detalhes-receita img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+#autor-receita {
+  font-size: var(--font-regular);
+}
+
+#tempo-preparo {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
 
 section {
   margin-bottom: 2rem;
@@ -122,6 +132,8 @@ section {
 section h2 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
+  text-align: left;
+  font-weight: bold;
 }
 
 ul, ol {
@@ -131,5 +143,13 @@ ul, ol {
 
 #dica-chef {
   font-size: var(--font-regular);
+}
+
+.footer {
+  background-color: var(--navbar-color);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
 }
 

@@ -18,10 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.getElementById("nome-receita").textContent = receita.nome;
-  document.getElementById("sobre-receita").textContent = receita.sobre;
-  document.getElementById("tempo-preparo").textContent = receita.tempoPreparo;
   document.getElementById("autor-receita").textContent = `Autor: ${receita.autor}`;
-  document.getElementById("ingredientes-contagem").textContent = `${receita.ingredientes.length} Ingredientes`;
+  document.getElementById("tempo-preparo").textContent = receita.tempoPreparo;
+  document.getElementById("sobre-receita").textContent = receita.sobre;
   document.getElementById("dica-chef").textContent = receita.dica;
 
   const ul = document.getElementById("ingredientes");
@@ -30,16 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const ol = document.getElementById("modo-preparo");
   ol.innerHTML = receita.preparo.map(p => `<li>${p}</li>`).join("");
 
-/** @type {HTMLImageElement | null} */
-const imagem = document.getElementById("imagem-receita");
-const imagemValida = receita.imagens.find(img => img.trim() !== "");
+  const imagem = document.getElementById("imagem-receita");
+  const imagemValida = receita.imagens.find(img => img.trim() !== "");
 
-if (imagemValida) {
-  imagem.src = imagemValida;
-} else {
-  imagem.style.display = "none";
-}
-
-
+  if (imagemValida) {
+    imagem.src = imagemValida;
+  } else {
+    imagem.style.display = "none";
+  }
 });
+
 

@@ -1,0 +1,106 @@
+/* =========================
+   VARIÁVEIS GLOBAIS
+========================= */
+:root {
+  --bg-color: #FFE3CD;
+  --navbar-color: #FEC89A;
+  --search-bg: #FEF6F0;
+  --text-color: #5B5B5B;
+  --placeholder: #BBBBBB;
+  --lighter-grey: #e6e6e6;
+
+  --font-title: 2rem;
+  --font-subtitle: 1.5rem;
+  --font-regular: 1rem;
+  --font-navbar: 0.95rem;
+  --font-placeholder: 0.875rem;
+  --font-small: 0.75rem;
+}
+
+
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  background-color: var(--navbar-color);
+  padding: 1rem;
+}
+
+.navbar .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+
+.container {
+  width: 100%;
+  max-width: 1100px; /* Reduzi a largura máxima */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+.logo {
+  font-size: var(--font-subtitle);
+  font-weight: bold;
+}
+
+.logo span {
+  font-weight: normal;
+}
+
+.search-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.search-container input {
+  background-color: var(--search-bg);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: var(--font-regular);
+  width: 300px;
+  color: var(--text-color);
+}
+
+.search-container input::placeholder {
+  color: var(--placeholder);
+}
+
+.categorias-dropdown .dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: var(--font-navbar);
+  padding: 0.5rem 1rem;
+}
+
+.categorias-dropdown .dropdown-toggle::after {
+  color: var(--text-color); /* cor da setinha */
+}
+
+.categorias-dropdown .dropdown-menu {
+  background-color: var(--search-bg);
+  border-radius: 8px;
+  font-size: var(--font-regular);
+  color: var(--text-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.categorias-dropdown .dropdown-item {
+  color: var(--text-color);
+}
+
+.categorias-dropdown .dropdown-item:hover {
+  background-color: var(--lighter-grey);
+}

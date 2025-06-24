@@ -464,3 +464,24 @@ main {
 }
 
 
+/* =========================
+   VOLTAR
+========================= */
+
+.voltar {
+    display: inline-block;
+    margin: 20px 0 0 20px; /* Espaçamento superior e lateral */
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+
+.voltar:hover {
+    opacity: 0.7;
+}
+
+

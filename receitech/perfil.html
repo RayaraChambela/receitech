@@ -29,12 +29,12 @@
           </ul>
         </div>
 
-        <input type="text" placeholder="Pesquise a sua receita..." />
+        <input type="text" id="campo-pesquisa" placeholder="Pesquise a sua receita..." />
       </div>
 
       <div class="user-icon">
         <a href="#" id="user-link">
-          <img src="/assets/icon-img-perfil.png" alt="Usuário" />
+          <img src="../assets/icon-img-perfil.png" alt="Usuário" />
         </a>
       </div>
     </div>
@@ -43,14 +43,14 @@
   <!-- Seção de perfil -->
   <main class="perfil-container">
     <div class="perfil-banner">
-      <img src="/assets/img-fundo-perfil.png" alt="banner" id="banner">
+      <img src="../assets/img-fundo-perfil.png" alt="banner" id="banner">
     </div>
 
     <div class="perfil-content">
       <div class="perfil-foto">
-        <img src="/assets/icon-img-perfil.png" alt="Foto de perfil" id="img-perfil">
+        <img src="../assets/icon-img-perfil.png" alt="Foto de perfil" id="img-perfil">
         <button class="camera-btn" onclick="fecharPopupEditarPerfil()">
-          <img src="/assets/icon-camera.png" alt="Câmera" id="img-camera" onclick="abrirPopup()">
+          <img src="../assets/icon-camera.png" alt="Câmera" id="img-camera" onclick="abrirPopup()">
         </button>
       </div>
 
@@ -60,7 +60,7 @@
           <div id="navbar-popup">
             <div class="centered-text">Editar Foto de Perfil</div>
             <button class="btn-fechar" onclick="fecharPopup()">
-              <img src="/assets/icon-sair.png" alt="Sair" class="img-btn-sair">
+              <img src="../assets/icon-sair.png" alt="Sair" class="img-btn-sair">
             </button>
           </div>
 
@@ -69,7 +69,7 @@
           <label for="imagem" class="label-imagem">+ Inserir Imagem</label>
 
           <div id="excluir">
-            <img src="/assets/icon-excluir.png" alt="Excluir" id="img-btn-excluir">
+            <img src="../assets/icon-excluir.png" alt="Excluir" id="img-btn-excluir">
             <p id="remover-foto">Remover foto atual</p>
           </div>
           <div>
@@ -80,10 +80,10 @@
 
       <div class="perfil-info">
         <div class="perfil-nome-edit">
-          <h2 id="nome-usuario">PALMIRINHA</h2>
-          <a href="#"><img src="/assets/icon-edit-perfil.png" alt="Editar perfil" id="edit-perfil"></a>
+          <h2 id="nome-usuario">Uuário</h2>
+          <a href="#"><img src="../assets/icon-edit-perfil.png" alt="Editar perfil" id="edit-perfil"></a>
         </div>
-        <p id="email-usuario">palmirinhareceitas@gmail.com</p>
+        <p id="email-usuario">email@gmail.com</p>
       </div>
 
 
@@ -109,9 +109,9 @@
             </form>
 
             <p class="aviso">
-              Quer excluir sua conta? <br>Essa ação não pode ser desfeita.>
+              Quer excluir sua conta? <br>Essa ação não pode ser desfeita.
             </p>
-            <button class="btn-excluir">Excluir minha conta</button>
+            <button class="btn-excluir" id="btn-excluir-conta">Excluir minha conta</button>
           </div>
         </div>
 
@@ -122,8 +122,8 @@
         <div class="post-box">
           <div class="post-header">
             <span><strong>24</strong> Posts</span>
-            <button class="novo-post-btn">
-              <img src="/assets/icon-novo-post.png" alt="Novo Post" id="novo-post"> Novo Post
+            <button class="novo-post-btn" id="btn-novo-post">
+              <img src="../assets/icon-novo-post.png" alt="Novo Post" id="novo-post"> Novo Post
             </button>
           </div>
         </div>
@@ -132,13 +132,13 @@
       <!-- Feed de receitas -->
       <div class="feed-receitas">
         <div class="receita-post">
-          <img src="/assets/img-bolinho.png" class="receita-feed-img" alt="Receita 1">
+          <img src="../assets/img-bolinho.png" class="receita-feed-img" alt="Receita 1">
         </div>
         <div class="receita-post">
-          <img src="/assets/img-cafe.png" class="receita-feed-img" alt="Receita 2">
+          <img src="../assets/img-cafe.png" class="receita-feed-img" alt="Receita 2">
         </div>
         <div class="receita-post">
-          <img src="/assets/img-bolo-milho.png" class="receita-feed-img" alt="Receita 3">
+          <img src="../assets/img-bolo-milho.png" class="receita-feed-img" alt="Receita 3">
         </div>
       </div>
     </div>
@@ -148,7 +148,8 @@
     <p id="footer">&copy; 2025 Receita Tech. Todos os direitos reservados.</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/navbar.js"></script>
   <script src="../js/perfil.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
