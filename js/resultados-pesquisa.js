@@ -33,29 +33,32 @@ function exibirResultados(termo) {
     return;
   }
 
-  resultados.forEach(receita => {
-    const card = document.createElement('div');
-    card.classList.add('card-receita');
+resultados.forEach(receita => {
+  const card = document.createElement('div');
+  card.classList.add('card-receita');
 
-    const imagem = receita.imagens.length > 0 ? receita.imagens[0] : '../assets/imagem-padrao.png';
+  const imagem = receita.imagens.length > 0 ? receita.imagens[0] : '../assets/imagem-padrao.png';
 
-    card.innerHTML = `
-      <img src="${imagem}" alt="${receita.nome}">
-      <div class="card-receita-conteudo">
-        <h3>${receita.nome}</h3>
-        <div class="tempo">
-          <img src="../assets/icon-tempo.svg" alt="Relógio" style="width: 16px;">
-          <span>${receita.tempoPreparo}</span>
-        </div>
+  card.innerHTML = `
+    <img src="${imagem}" alt="${receita.nome}">
+    <div class="card-receita-conteudo">
+      <h3>${receita.nome}</h3>
+      <div class="tempo">
+        <img src="../assets/icon-tempo.svg" alt="Relógio" style="width: 16px;">
+        <span>${receita.tempoPreparo}</span>
       </div>
-    `;
+    </div>
+  `;
 
-    card.addEventListener('click', () => {
-      window.location.href = `receita.html?id=${receita.id}`;
-    });
-
-    container.appendChild(card);
+  card.addEventListener('click', () => {
+    window.location.href = `receita.html?id=${receita.id}`;
   });
+
+  container.appendChild(card);
+});
+
+
+
 }
 
 const termo = obterParametroBusca();
