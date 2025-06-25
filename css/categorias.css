@@ -30,6 +30,23 @@ main {
   padding: 40px 80px;
 }
 
+.voltar-container {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 5;
+}
+
+.voltar {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.voltar img {
+  width: 25px;
+}
+
 #titulo-categoria {
   font-size: 1.5rem;
   font-weight: 700;
