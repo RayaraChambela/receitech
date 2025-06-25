@@ -1,3 +1,10 @@
+window.addEventListener("DOMContentLoaded", function () {
+    if (!localStorage.getItem("avisoCadastroExibido")) {
+        alert("Olá! É a sua primeira vez por aqui? Clique no seu perfil e faça o cadastro para começar a publicar suas próprias receitas!");
+        localStorage.setItem("avisoCadastroExibido", "true");
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   const receitasSalvas = JSON.parse(localStorage.getItem('receitas')) || [];
 
