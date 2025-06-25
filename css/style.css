@@ -49,13 +49,6 @@ main {
 /* =========================
    NAVBAR
 ========================= */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--navbar-color);
-  padding: 1rem 4rem;
-}
 
 .container {
   width: 100%;
@@ -65,7 +58,6 @@ main {
   justify-content: space-between;
   align-items: center;
 }
-
 
 .logo {
   font-size: var(--font-subtitle);
@@ -139,7 +131,6 @@ main {
   justify-content: center;
   padding: 2rem;
 }
-
 
 /* =========================
    RECEITA - CARD
@@ -266,120 +257,6 @@ main {
   padding: 1rem;
   font-size: var(--font-small);
 }
-
-
-/* =========================
-   PÁGINA DE CADASTRO
-========================= */
-.cadastro-container {
-  background-color: var(--bg-color);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-}
-
-.cadastro-card {
-  background-color: var(--search-bg);
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.topo-cadastro {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.logo-cadastro {
-  width: 60px;
-  height: auto;
-}
-
-.titulos-cadastro {
-  flex: 1;
-  text-align: center;
-}
-
-.titulos-cadastro h1 {
-  font-size: var(--font-subtitle);
-  color: var(--text-color);
-  margin-bottom: 0.25rem;
-}
-
-.titulos-cadastro h2 {
-  font-size: var(--font-regular);
-  color: var(--text-color);
-  font-weight: 600;
-}
-
-.cadastro-card label {
-  text-align: left;
-  display: block;
-  font-size: var(--font-placeholder);
-  margin: 0.5rem 0 0.2rem;
-  color: var(--text-color);
-}
-
-.cadastro-card input {
-  width: 100%;
-  padding: 0.5rem 0.8rem;
-  border-radius: 8px;
-  border: 1px solid var(--lighter-grey);
-  background-color: #fff;
-  font-size: var(--font-regular);
-  margin-bottom: 1rem;
-  color: var(--text-color);
-}
-
-.cadastro-card input::placeholder {
-  color: var(--placeholder);
-}
-
-.btn-cadastrar {
-  background-color: var(--navbar-color);
-  color: var(--text-color);
-  border: none;
-  padding: 0.7rem 2rem;
-  border-radius: 8px;
-  font-size: var(--font-regular);
-  cursor: pointer;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s ease;
-  display: block;
-  margin: 0 auto; /* centraliza o botão */
-}
-
-.btn-cadastrar:hover {
-  background-color: #fdb77e;
-}
-
-.login-link {
-  text-align: center;
-  margin-top: 1rem;
-  font-size: var(--font-placeholder);
-}
-
-.login-link a {
-  color: #4b4bff;
-  text-decoration: none;
-}
-
-.login-link a:hover {
-  text-decoration: underline;
-}
-
-.logo-cadastro img {
-  width: 60px;
-  margin-bottom: 1rem;
-}
-
 
 /* =========================
    PÁGINA DE PERFIL
