@@ -5,7 +5,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #FFE3CD;
-    font-family: "Inter", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: #5B5B5B;
     padding: 1rem;
 }
@@ -15,82 +15,75 @@ body {
     width: 520px;
     max-width: 100%;
     height: auto;
-    padding: 30px;
+    padding: 2rem;
     box-sizing: border-box;
     border-radius: 20px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .logo-titulo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-
-#titulo {
-    text-align: center;
-    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
     justify-content: center;
-    margin-left: 75px;
 }
 
 .logo-titulo img {
-    width: 80px;
+    width: 60px;
     height: auto;
 }
 
 .logo-titulo h1 {
-    font-size: 22px;
+    font-size: 1.5rem;
     font-weight: 600;
+    color: #5B5B5B;
     margin: 0;
+}
+
+h2 {
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 0.5rem 0 1.5rem;
     color: #5B5B5B;
 }
 
 #form-centralizar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+label {
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+    color: #5B5B5B;
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  max-width: 330px;
-}
-
-h2 {
-    font-size: 15px;
-    font-weight: 400;
-    text-align: center;
-    margin: 10px 0;
-}
-
-label {
-    font-size: 13px;
-    margin-bottom: 5px;
-    font-weight: 500;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 input {
-    background-color: transparent;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    width: 500px;
-    max-width: 330px;
-    margin-bottom: 15px;
+    width: 100%;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #5B5B5B;
 }
 
-p {
-    color: red;
-    text-align: center;
+input::placeholder {
+    color: #BBBBBB;
 }
+
 
 button {
     background-color: #FEC89A;
@@ -106,89 +99,71 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.2s ease;
 }
 
 button:hover {
-    background-color: #FFE3CD;
+    background-color: #fdb77e;
 }
 
-.botao-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
+.login-link {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.875rem;
 }
 
-/* =====================
-   Responsividade
-===================== */
+.login-link a {
+    color: #4b4bff;
+    text-decoration: none;
+}
 
-/* Telas até 600px (celulares) */
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+#container {
+    position: relative;
+}
+
+.fechar-popup {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 10;
+}
+
+#mensagem-erro {
+    color: red;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+}
+
+
+/* Responsividade */
 @media (max-width: 600px) {
-  body {
-    padding: 0.5rem;
-  }
+    #container {
+        width: 100%;
+        padding: 1.5rem;
+    }
 
-  #container {
-    padding: 20px;
-    width: 100%;
-  }
+    .logo-titulo {
+        flex-direction: column;
+        text-align: center;
+    }
 
-  .logo-titulo {
-    justify-content: center;
-    text-align: center;
-  }
+    .logo-titulo img {
+        width: 50px;
+    }
 
-  #titulo {
-    margin-left: 0;
-    text-align: center;
-  }
+    .logo-titulo h1 {
+        font-size: 1.3rem;
+    }
 
-  .logo-titulo img {
-    width: 60px;
-  }
-
-  .logo-titulo h1 {
-    font-size: 18px;
-  }
-
-  .form {
-    max-width: 100%;
-    align-items: center;
-  }
-
-  input {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  button {
-    width: 100%;
-    max-width: 200px;
-  }
-}
-
-/* Telas de 601px até 900px (tablets) */
-@media (min-width: 601px) and (max-width: 900px) {
-  #container {
-    width: 90%;
-    padding: 25px;
-  }
-
-  .form {
-    max-width: 100%;
-    align-items: center;
-  }
-
-  input {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .logo-titulo {
-    justify-content: center;
-  }
-
-  #titulo {
-    margin-left: 0;
-  }
+    button {
+        width: 100%;
+    }
 }
