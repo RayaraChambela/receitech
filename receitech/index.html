@@ -11,127 +11,131 @@
   <link rel="stylesheet" href="../css/footer.css">
 </head>
 <body>
+  
   <div class="voltar-container">
     <button class="voltar" onclick="window.history.back()">
       <img src="../assets/setinha-cinza.svg" alt="Voltar" width="25" height="25">
     </button>
   </div>
-<header class="navbar">
-  <div class="container">
-    <a href="index.html">
-      <img src="../assets/logo-branca.png" alt="Logo Receita Tech" class="logo" />
-    </a>
 
-    <div class="user-wrapper">
-      <div class="user-icon">
-        <a href="#" id="user-link">
-          <img src="../assets/icon-perfil.png" alt="Usuário" class="perfil-navbar" />
-        </a>
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html">
+        <img src="../assets/logo-branca.png" alt="Logo Receita Tech" class="logo" />
+      </a>
+
+      <div class="user-wrapper">
+        <div class="user-icon">
+          <a href="#" id="user-link">
+            <img src="../assets/icon-perfil.png" alt="Usuário" class="perfil-navbar" />
+          </a>
+        </div>
+      </div>
+
+      <div class="search-container">
+        <div class="dropdown categorias-dropdown">
+          <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+            Categorias
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li><button class="dropdown-item" type="button">Sobremesas</button></li>
+            <li><button class="dropdown-item" type="button">Almoço</button></li>
+            <li><button class="dropdown-item" type="button">Fitness</button></li>
+            <li><button class="dropdown-item" type="button">Lanches</button></li>
+          </ul>
+        </div>
+
+        <input type="text" id="campo-pesquisa" placeholder="Pesquise a sua receita..." />
       </div>
     </div>
+  </header>
 
-    <div class="search-container">
-      <div class="dropdown categorias-dropdown">
-        <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-          Categorias
+  <main>
+    <!-- RECEITAS EM GRID -->
+    <section class="receitas-grid">
+      <div class="receita-card">
+        <img src="../assets/spaguetti.png" alt="Spaghetti alla Burrata" class="receita-imagem" />
+        <div class="receita-info">
+          <h3>Spaghetti alla Burrata</h3>
+          <div class="tempo">
+            <img src="../assets/icon-tempo.png" alt="Relógio" />
+            <span>39 mins</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="receita-card">
+        <img src="../assets/stake.png" alt="Stake Tartare" class="receita-imagem" />
+        <div class="receita-info">
+          <h3>Stake Tartare</h3>
+          <div class="tempo">
+            <img src="../assets/icon-tempo.png" alt="Relógio" />
+            <span>39 mins</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="receita-card">
+        <img src="../assets/carne.png" alt="Filet Mignon" class="receita-imagem" />
+        <div class="receita-info">
+          <h3>Filet Mignon</h3>
+          <div class="tempo">
+            <img src="../assets/icon-tempo.png" alt="Relógio" />
+            <span>58 mins</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="receita-card">
+        <img src="../assets/BOLO DE LARANJA.jpg" alt="Bolo de Laranja" class="receita-imagem" />
+        <div class="receita-info">
+          <h3>Bolo de Laranja</h3>
+          <div class="tempo">
+            <img src="../assets/icon-tempo.png" alt="Relógio" />
+            <span>39 mins</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIAS -->
+    <section class="categorias-container">
+      <div class="categoria bolinha-categoria" data-categoria="Sobremesas">
+        <button class="btn-categoria">
+          <img src="../assets/categoria-sobremesa.png" alt="Sobremesas" />
+          <p>Sobremesas</p>
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <li><button class="dropdown-item" type="button">Sobremesas</button></li>
-          <li><button class="dropdown-item" type="button">Almoço</button></li>
-          <li><button class="dropdown-item" type="button">Fitness</button></li>
-          <li><button class="dropdown-item" type="button">Lanches</button></li>
-        </ul>
       </div>
-
-      <input type="text" id="campo-pesquisa" placeholder="Pesquise a sua receita..." />
-    </div>
-  </div>
-</header>
-
-
-<!-- RECEITAS EM GRID -->
-<section class="receitas-grid">
-  <div class="receita-card">
-    <img src="../assets/spaguetti.png" alt="Spaghetti alla Burrata" class="receita-imagem" />
-    <div class="receita-info">
-      <h3>Spaghetti alla Burrata</h3>
-      <div class="tempo">
-        <img src="../assets/icon-tempo.png" alt="Relógio" />
-        <span>39 mins</span>
+      <div class="categoria bolinha-categoria" data-categoria="Almoço">
+        <button class="btn-categoria">
+          <img src="../assets/categoria-almoco.png" alt="Almoço" />
+          <p>Almoço</p>
+        </button>
       </div>
-    </div>
-  </div>
-
-  <div class="receita-card">
-    <img src="../assets/stake.png" alt="Stake Tartare" class="receita-imagem" />
-    <div class="receita-info">
-      <h3>Stake Tartare</h3>
-      <div class="tempo">
-        <img src="../assets/icon-tempo.png" alt="Relógio" />
-        <span>39 mins</span>
+      <div class="categoria bolinha-categoria" data-categoria="Fitness">
+        <button class="btn-categoria">
+          <img src="../assets/categoria-fit.png" alt="Fitness" />
+          <p>Fitness</p>
+        </button> 
       </div>
-    </div>
-  </div>
-
-  <div class="receita-card">
-    <img src="../assets/carne.png" alt="Filet Mignon" class="receita-imagem" />
-    <div class="receita-info">
-      <h3>Filet Mignon</h3>
-      <div class="tempo">
-        <img src="../assets/icon-tempo.png" alt="Relógio" />
-        <span>58 mins</span>
+      <div class="categoria bolinha-categoria" data-categoria="Lanches">
+        <button class="btn-categoria">
+          <img src="../assets/categoria-lanche.png" alt="Lanches" />
+          <p>Lanches</p>
+        </button> 
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 
-  <div class="receita-card">
-    <img src="../assets/BOLO DE LARANJA.jpg" alt="Bolo de Laranja" class="receita-imagem" />
-    <div class="receita-info">
-      <h3>Bolo de Laranja</h3>
-      <div class="tempo">
-        <img src="../assets/icon-tempo.png" alt="Relógio" />
-        <span>39 mins</span>
-      </div>
-    </div>
-  </div>
-</section>
+  <footer class="footer">
+    <p>&copy; 2025 Receita Tech. Todos os direitos reservados.</p>
+  </footer>
 
-<!-- CATEGORIAS -->
-<section class="categorias-container">
-  <div class="categoria bolinha-categoria" data-categoria="Sobremesas">
-    <button class="btn-categoria">
-      <img src="../assets/categoria-sobremesa.png" alt="Sobremesas" />
-      <p>Sobremesas</p>
-    </button>
-  </div>
-  <div class="categoria bolinha-categoria" data-categoria="Almoço">
-    <button class="btn-categoria">
-      <img src="../assets/categoria-almoco.png" alt="Almoço" />
-      <p>Almoço</p>
-    </button>
-  </div>
-  <div class="categoria bolinha-categoria" data-categoria="Fitness">
-    <button class="btn-categoria">
-      <img src="../assets/categoria-fit.png" alt="Fitness" />
-      <p>Fitness</p>
-    </button> 
-  </div>
-  <div class="categoria bolinha-categoria" data-categoria="Lanches">
-    <button class="btn-categoria">
-      <img src="../assets/categoria-lanche.png" alt="Lanches" />
-      <p>Lanches</p>
-    </button> 
-  </div>
-</section>
+  <script src="../js/index.js"></script>
+  <script src="../js/categorias.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<footer class="footer">
-  <p>&copy; 2025 Receita Tech. Todos os direitos reservados.</p>
-</footer>
-
-<script src="../js/index.js"></script>
-<script src="../js/categorias.js"></script>
-<script src="../js/auth.js"></script>
-<script src="../js/navbar.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
