@@ -60,38 +60,44 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.querySelector('.btn-salvar').addEventListener('click', function(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const novoNome = document.getElementById('nome').value;
-    const novoEmail = document.getElementById('email').value;
-    const novaSenha = document.getElementById('senha').value;
+  const novoNome = document.getElementById('nome').value;
+  const novoEmail = document.getElementById('email').value;
+  const novaSenha = document.getElementById('senha').value;
 
-    if (novoNome && novoEmail && novaSenha) {
-      usuario.nome = novoNome;
-      usuario.email = novoEmail;
-      usuario.senha = novaSenha;
+  if (novoNome && novoEmail && novaSenha) {
+    const emailOriginal = usuario.email;  // Captura o email atual ANTES da mudança
 
-      localStorage.setItem('usuario', JSON.stringify(usuario));
+    usuario.nome = novoNome;
+    usuario.email = novoEmail;
+    usuario.senha = novaSenha;
 
-      // Atualiza no array de usuários
-      let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-      usuarios = usuarios.map(u => {
-        if (u.email === usuario.email) {
-          return { ...usuario };
-        }
-        return u;
-      });
-      localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    localStorage.setItem('usuario', JSON.stringify(usuario));
 
-      if (nomeUsuario) nomeUsuario.textContent = novoNome;
-      if (emailUsuario) emailUsuario.textContent = novoEmail;
+    // Atualiza no array de usuários usando o email original
+    let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    usuarios = usuarios.map(u => {
+      if (u.email === emailOriginal) {
+        return { ...usuario };
+      }
+      return u;
+    });
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
-      fecharPopupEditarPerfil();
-      alert("Informações atualizadas com sucesso!");
-    } else {
-      alert("Preencha todos os campos!");
-    }
-  });
+    const nomeUsuario = document.getElementById('nome-usuario');
+    const emailUsuario = document.getElementById('email-usuario');
+
+    if (nomeUsuario) nomeUsuario.textContent = novoNome;
+    if (emailUsuario) emailUsuario.textContent = novoEmail;
+
+    fecharPopupEditarPerfil();
+    alert("Informações atualizadas com sucesso!");
+  } else {
+    alert("Preencha todos os campos!");
+  }
+});
+
 
   document.getElementById('salvar').addEventListener('click', () => {
     const fileInput = document.getElementById('imagem');
