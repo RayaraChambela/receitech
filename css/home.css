@@ -46,6 +46,22 @@ main {
   flex: 1;
 }
 
+.voltar-container {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 5;
+}
+
+.voltar {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.voltar img {
+  width: 25px;
+}
 
 /* =========================
    RECEITAS EM GRID

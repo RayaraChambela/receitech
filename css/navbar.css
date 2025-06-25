@@ -62,6 +62,7 @@
   transform: scale(1.1);
 }
 
+
 /* =========================
    BARRA DE PESQUISA
 ========================= */
@@ -147,7 +148,7 @@
 ========================= */
 
 /* Tablets (até 992px) */
-@media (max-width: 992px) {
+@media (max-width: 1215px) {
   .navbar .container,
   .container {
     flex-direction: column;
