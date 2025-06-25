@@ -211,8 +211,8 @@ img {
   display: flex;
   align-items: center;
   padding: 0 15px;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .centered-text {
@@ -246,7 +246,7 @@ img {
 }
 
 .label-imagem {
-  display: inline-block;
+  display: flex;
   color: var(--text-color);
   padding: 10px 20px;
   border-radius: 8px;
@@ -254,6 +254,7 @@ img {
   font-size: 13px;
   cursor: pointer;
   margin-top: 2rem;
+  justify-content: center;
 }
 
 .label-imagem:hover {
@@ -263,6 +264,7 @@ img {
 #excluir {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 2px;
   margin-bottom: 30px;
 }
@@ -295,6 +297,7 @@ img {
   font-weight: 600;
   margin-bottom: 30px;
   font-size: 14px;
+  margin-left: 67px;
 }
 
 .popup-overlay {
@@ -308,6 +311,11 @@ img {
   justify-content: center;
   align-items: center;
   z-index: 999;
+}
+
+.popup {
+  background-color: var(--bg-color);
+  border-radius: 10px;
 }
 
 .popup-editar {
@@ -435,7 +443,6 @@ input {
   justify-content: center;
   gap: 1.8rem;
   padding: 3px;
-  margin-left: 30px;
   box-sizing: border-box;
 }
 
