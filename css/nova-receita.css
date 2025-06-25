@@ -8,8 +8,7 @@
   --text-color: #5B5B5B;
   --placeholder: #BBBBBB;
   --lighter-grey: #e6e6e6;
-  --hover:rgb(0, 68, 255) ;
-
+  --hover: rgb(0, 68, 255);
   --bolinha-color: #FFB088;
 
   --font-title: 2rem;
@@ -35,12 +34,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
 .card-cadastro {
   background-color: var(--bg-color);
   border-radius: 10px;
   width: 600px;
+  max-width: 100%;
   position: relative;
   overflow: hidden;
 }
@@ -161,7 +162,6 @@ textarea {
   resize: vertical;
 }
 
-
 .linha-dupla {
   display: flex;
   gap: 1rem;
@@ -181,13 +181,11 @@ textarea {
   justify-content: space-between;
   align-items: center;
   margin-top: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-.botoes-esquerda {
-  display: flex;
-  align-items: center;
-}
-
+.botoes-esquerda,
 .botoes-direita {
   display: flex;
   align-items: center;
@@ -199,7 +197,6 @@ textarea {
   font-size: var(--font-navbar);
   color: var(--text-color);
   text-decoration: underline;
-  color: var(--text-color);
   font-weight: 600;
 }
 
@@ -225,9 +222,66 @@ textarea {
   color: var(--hover);
 }
 
-#lista-ingredientes input, #lista-preparo input, #lista-imagens input{
+#lista-ingredientes input,
+#lista-preparo input,
+#lista-imagens input {
   margin-bottom: 0.5rem;
 }
 
 
+/* =========================
+   RESPONSIVIDADE
+========================= */
 
+@media (max-width: 768px) {
+  .card-cadastro {
+    width: 100%;
+  }
+
+  .card-cadastro > .conteudo {
+    padding: 1rem;
+  }
+
+  .header-card {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .fechar {
+    font-size: 1.1rem;
+  }
+
+  .botoes {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .botoes-esquerda,
+  .botoes-direita {
+    justify-content: center;
+    width: 100%;
+  }
+
+  button, .btn-voltar {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-card {
+    font-size: 0.95rem;
+  }
+
+  .fechar {
+    font-size: 1rem;
+  }
+
+  label {
+    font-size: 0.95rem;
+  }
+
+  input, select, textarea {
+    font-size: 0.95rem;
+  }
+}

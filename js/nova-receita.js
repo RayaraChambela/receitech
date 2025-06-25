@@ -61,34 +61,19 @@ function salvarEtapa4() {
 }
 
 function finalizarReceita() {
-  const inputs = document.querySelectorAll('#lista-imagens input');
-  dadosReceita.imagens = [];
-
-  let imagensSelecionadas = 0;
-  for (let inp of inputs) {
-    if (inp.files[0]) imagensSelecionadas++;
-  }
-
-  if (imagensSelecionadas === 0) {
-    alert("Adicione pelo menos uma imagem!");
+  const input = document.querySelector('#lista-imagens input');
+  
+  if (!input.files[0]) {
+    alert("Adicione uma imagem!");
     return;
   }
 
-  let imagensLidas = 0;
-  for (let inp of inputs) {
-    if (inp.files[0]) {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        dadosReceita.imagens.push(e.target.result);
-        imagensLidas++;
-
-        if (imagensLidas === imagensSelecionadas) {
-          salvarLocalStorage();
-        }
-      };
-      reader.readAsDataURL(inp.files[0]);
-    }
-  }
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    dadosReceita.imagens.push(e.target.result);
+    salvarLocalStorage();
+  };
+  reader.readAsDataURL(input.files[0]);
 }
 
 function salvarLocalStorage() {
@@ -145,14 +130,6 @@ function adicionarEtapaPreparo() {
   const input = document.createElement('input');
   input.type = "text";
   input.placeholder = `${index} -`;
-  lista.appendChild(input);
-}
-
-function adicionarImagem() {
-  const lista = document.getElementById('lista-imagens');
-  const input = document.createElement('input');
-  input.type = "file";
-  input.accept = "image/*";
   lista.appendChild(input);
 }
 

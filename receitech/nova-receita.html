@@ -40,8 +40,6 @@
           <label for="sobre">Sobre a receita:</label>
           <textarea id="sobre" maxlength="500" rows="4" oninput="atualizarContadorSobre()" placeholder="Descreva brevemente sua receita"></textarea>
 
-
-
           <div class="botoes">
             <button onclick="proximaEtapa()">Próximo</button>
           </div>
@@ -89,7 +87,6 @@
           <label for="dica">Dica do chef:</label>
           <textarea id="dica" rows="5" maxlength="500" placeholder="Máximo 150 caracteres"></textarea>
 
-
           <div class="botoes">
             <div class="botoes-esquerda">
               <button class="btn-voltar" onclick="voltarEtapa()">← Voltar</button>
@@ -101,9 +98,9 @@
         </div>
 
         <div id="etapa-5" style="display: none;">
-          <p class="inserir" onclick="adicionarImagem()">+ Inserir imagem</p>
+          
+          <label for="imagem-receita">Foto da receita:</label>
           <div id="lista-imagens">
-            <input type="file" accept="image/*">
             <input type="file" accept="image/*">
           </div>
 
@@ -124,5 +121,3 @@
   <script src="../js/nova-receita.js"></script>
 </body>
 </html>
-
-
