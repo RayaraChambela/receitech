@@ -21,17 +21,18 @@ html, body {
   display: flex;
   flex-direction: column;
   background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Montserrat', sans-serif;
 }
 
-
 main {
-  flex: 1px;
+  flex: 1;
   padding: 40px 80px;
 }
 
-h2 {
+#titulo-pesquisa {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-color);
   margin-bottom: 40px;
 }
@@ -45,7 +46,6 @@ h2 {
 
 .card-receita {
   width: 240px;
-  font-size: 0.95rem;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -99,14 +99,61 @@ h2 {
   height: 16px;
 }
 
-.card-receita p {
-  font-size: 0.85rem;
-  color: var(--text-color);
-  margin: 0;
-  line-height: 1.3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* Limita o texto a 2 linhas */
-  -webkit-box-orient: vertical;
+/* Responsividade para tablet e celular */
+@media (max-width: 1024px) {
+  .resultados-container {
+    justify-content: flex-start;
+  }
+
+  .card-receita {
+    width: 200px;
+  }
+
+  .card-receita img {
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .resultados-container {
+    justify-content: flex-start;
+  }
+
+  .card-receita {
+    width: 160px;
+  }
+
+  .card-receita img {
+    height: 140px;
+  }
+
+  .card-receita h3 {
+    font-size: 0.85rem;
+  }
+
+  .card-receita .tempo {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 20px;
+  }
+
+  .card-receita {
+    width: calc(50% - 8px); /* 50% da largura menos metade do gap */
+  }
+
+  .card-receita img {
+    height: 120px;
+  }
+
+  .card-receita h3 {
+    font-size: 0.8rem;
+  }
+
+  .card-receita .tempo {
+    font-size: 0.75rem;
+  }
 }

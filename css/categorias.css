@@ -98,3 +98,64 @@ main {
   width: 16px;
   height: 16px;
 }
+
+/* Responsividade para tablet e celular */
+@media (max-width: 1024px) {
+  .resultados-container {
+    justify-content: flex-start;
+  }
+
+  .card-receita {
+    width: 200px;
+  }
+
+  .card-receita img {
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .resultados-container {
+    justify-content: flex-start;
+  }
+
+  .card-receita {
+    width: 160px;
+  }
+
+  .card-receita img {
+    height: 140px;
+  }
+
+  .card-receita h3 {
+    font-size: 0.85rem;
+  }
+
+  .card-receita .tempo {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 20px;
+  }
+
+  .card-receita {
+    width: calc(50% - 8px); /* 50% da largura menos metade do gap */
+  }
+
+  .card-receita img {
+    height: 120px;
+  }
+
+  .card-receita h3 {
+    font-size: 0.8rem;
+  }
+
+  .card-receita .tempo {
+    font-size: 0.75rem;
+  }
+}
+
+
