@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/css/stylesLogin.css">
+    <link rel="stylesheet" href="../css/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Life+Savers:wght@400;700;800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -15,31 +15,30 @@
             <a href="index.html">
                 <img src="/assets/logo.png" alt="">
             </a>
-            <div>
+            <div id="titulo">
                 <h1>Receita Tech</h1>
             </div>
         </div>
 
-        <form id="form-login">
-            <h2>Acesse sua conta</h2>
-            <div class="form">
-                <label for="login">LOGIN</label>
-                <input type="text" id="login" placeholder="Login de usuário" required>
-            </div>
-            <div class="form">
-                <label for="senha">SENHA</label>
-                <input type="password" id="senha" placeholder="Login de usuário" required>
-            </div>
-            <div class="form-checkbox">
-                <label>
-                    <input type="checkbox" id="check">
-                    Lembrar usuário
-                </label>
-            </div>
-            <div class="botao-container">
-                <button type="submit">Login</button>
-            </div>
-        </form>
+        <div id="form-centralizar">
+            <form id="form-login">
+                <h2>Acesse sua conta</h2>
+
+                <div class="form">
+                    <label for="login">LOGIN</label>
+                    <input type="text" id="login" placeholder="Login de usuário" required>
+                </div>
+
+                <div class="form">
+                    <label for="senha">SENHA</label>
+                    <input type="password" id="senha" placeholder="Login de usuário" required>
+                </div>
+
+                <div class="botao-container">
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
         <p id="mensagem-erro" ></p>
     </div>
 

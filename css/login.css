@@ -1,0 +1,194 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #FFE3CD;
+    font-family: "Inter", sans-serif;
+    color: #5B5B5B;
+    padding: 1rem;
+}
+
+#container {
+    background-color: #FEF6F0;
+    width: 520px;
+    max-width: 100%;
+    height: auto;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+#titulo {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 75px;
+}
+
+.logo-titulo img {
+    width: 80px;
+    height: auto;
+}
+
+.logo-titulo h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    color: #5B5B5B;
+}
+
+#form-centralizar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 330px;
+}
+
+h2 {
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    margin: 10px 0;
+}
+
+label {
+    font-size: 13px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+input {
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 500px;
+    max-width: 330px;
+    margin-bottom: 15px;
+}
+
+p {
+    color: red;
+    text-align: center;
+}
+
+button {
+    background-color: #FEC89A;
+    color: #5B5B5B;
+    font-weight: 600;
+    width: 160px;
+    height: 45px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    background-color: #FFE3CD;
+}
+
+.botao-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* =====================
+   Responsividade
+===================== */
+
+/* Telas até 600px (celulares) */
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  #container {
+    padding: 20px;
+    width: 100%;
+  }
+
+  .logo-titulo {
+    justify-content: center;
+    text-align: center;
+  }
+
+  #titulo {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .logo-titulo img {
+    width: 60px;
+  }
+
+  .logo-titulo h1 {
+    font-size: 18px;
+  }
+
+  .form {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  button {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Telas de 601px até 900px (tablets) */
+@media (min-width: 601px) and (max-width: 900px) {
+  #container {
+    width: 90%;
+    padding: 25px;
+  }
+
+  .form {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .logo-titulo {
+    justify-content: center;
+  }
+
+  #titulo {
+    margin-left: 0;
+  }
+}
