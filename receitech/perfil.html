@@ -14,6 +14,7 @@
   <div class="voltar-container">
     <button class="voltar" onclick="window.history.back()">
       <img src="../assets/setinha-cinza.svg" alt="Voltar" width="25" height="25">
+      <figcaption>Voltar</figcaption>
     </button>
   </div>
 
@@ -33,6 +34,9 @@
             <li><button class="dropdown-item" type="button">Almoço</button></li>
             <li><button class="dropdown-item" type="button">Fitness</button></li>
             <li><button class="dropdown-item" type="button">Lanches</button></li>
+            <li><button class="dropdown-item" type="button">Bebidas</button></li>
+            <li><button class="dropdown-item" type="button">Jantar</button></li>
+            <li><button class="dropdown-item" type="button">Café da manhã</button></li>
           </ul>
         </div>
 
@@ -42,6 +46,7 @@
       <div class="user-icon">
         <a href="#" id="user-link">
           <img src="../assets/icon-img-perfil.png" alt="Usuário" />
+          <figcaption>Perfil</figcaption>
         </a>
       </div>
     </div>
@@ -70,7 +75,10 @@
               <img src="../assets/icon-sair.png" alt="Sair" class="img-btn-sair">
             </button>
           </div>
-
+          
+          <div class="preview-container">
+            <img id="preview" src="" alt="Pré-visualização" />
+          </div>
 
           <input type="file" id="imagem" class="input-arquivo" accept="image/*">
           <label for="imagem" class="label-imagem">+ Inserir Imagem</label>
