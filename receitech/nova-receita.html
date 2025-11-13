@@ -24,6 +24,7 @@
           <div class="bolinha"></div>
         </div>
 
+        <!-- ================= ETAPA 1 ================= -->
         <div id="etapa-1">
           <label for="nome">Nome da receita:</label>
           <input type="text" id="nome">
@@ -31,25 +32,39 @@
           <label for="categoria">Categoria:</label>
           <select id="categoria">
             <option value="">Selecione</option>
-            <option value="Sobremesas">Sobremesas</option>
-            <option value="Almoço">Almoço</option>
-            <option value="Fitness">Fitness</option>
+            <option value="Bolos e tortas">Bolos e tortas</option>
+            <option value="Carnes">Carnes</option>
+            <option value="Aves">Aves</option>
+            <option value="Peixes e frutos do mar">Peixes e frutos do mar</option>
+            <option value="Saladas e molhos">Saladas e molhos</option>
+            <option value="Sopas">Sopas</option>
+            <option value="Massas">Massas</option>
+            <option value="Bebidas">Bebidas</option>
             <option value="Lanches">Lanches</option>
-            <option value="Almoço">Bebidas</option>
-            <option value="Fitness">Jantar</option>
-            <option value="Lanches">Café da manhã</option>
-            
+            <option value="Doces e sobremesas">Doces e sobremesas</option>
+            <option value="Alimentação saudável">Alimentação saudável</option>
+          </select>
+
+          <label for="subcategoria">Subcategoria:</label>
+          <select id="subcategoria" disabled>
+            <option value="">Selecione a categoria primeiro</option>
           </select>
 
           <label for="sobre">Sobre a receita:</label>
-          <textarea id="sobre" maxlength="500" rows="4" oninput="atualizarContadorSobre()" placeholder="Descreva brevemente sua receita"></textarea>
+          <textarea
+            id="sobre"
+            maxlength="500"
+            rows="4"
+            oninput="atualizarContadorSobre()"
+            placeholder="Descreva brevemente sua receita"
+          ></textarea>
 
           <div class="botoes">
             <button onclick="proximaEtapa()">Próximo</button>
           </div>
-
         </div>
 
+        <!-- ================= ETAPA 2 ================= -->
         <div id="etapa-2" style="display: none;">
           <p class="inserir" onclick="adicionarIngrediente()">+ Inserir ingrediente</p>
           <div id="lista-ingredientes">
@@ -67,6 +82,7 @@
           </div>
         </div>
 
+        <!-- ================= ETAPA 3 ================= -->
         <div id="etapa-3" style="display: none;">
           <p class="inserir" onclick="adicionarEtapaPreparo()">+ Inserir etapa de preparo</p>
           <div id="lista-preparo">
@@ -87,9 +103,15 @@
           </div>
         </div>
 
+        <!-- ================= ETAPA 4 ================= -->
         <div id="etapa-4" style="display: none;">
           <label for="dica">Dica do chef:</label>
-          <textarea id="dica" rows="5" maxlength="500" placeholder="Máximo 150 caracteres"></textarea>
+          <textarea
+            id="dica"
+            rows="5"
+            maxlength="500"
+            placeholder="Máximo 150 caracteres"
+          ></textarea>
 
           <div class="botoes">
             <div class="botoes-esquerda">
@@ -101,8 +123,8 @@
           </div>
         </div>
 
+        <!-- ================= ETAPA 5 ================= -->
         <div id="etapa-5" style="display: none;">
-          
           <label for="imagem-receita">Foto da receita:</label>
           <div id="lista-imagens">
             <input type="file" accept="image/*">

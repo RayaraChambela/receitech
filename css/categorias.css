@@ -14,7 +14,8 @@
   --font-small: 0.75rem;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -116,7 +117,53 @@ main {
   height: 16px;
 }
 
-/* Responsividade para tablet e celular */
+/* ========================= SUBMENU DO DROPDOWN CATEGORIAS ========================= */
+
+.categorias-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1050;
+}
+
+.categorias-dropdown .categoria-item {
+  position: relative;
+}
+
+.categorias-dropdown .dropdown-submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 220px;
+  background-color: var(--search-bg);
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 0.25rem;
+  z-index: 1051;
+}
+
+.categorias-dropdown .categoria-item:hover > .dropdown-submenu {
+  display: block;
+}
+
+.categorias-dropdown .dropdown-subitem {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 0.35rem 1.25rem;
+  text-align: left;
+  font-size: var(--font-navbar);
+  color: var(--text-color);
+  white-space: nowrap;
+}
+
+.categorias-dropdown .dropdown-subitem:hover {
+  background-color: var(--lighter-grey);
+}
+
+/* Responsividade */
+
 @media (max-width: 1024px) {
   .resultados-container {
     justify-content: flex-start;
@@ -159,7 +206,7 @@ main {
   }
 
   .card-receita {
-    width: calc(50% - 8px); /* 50% da largura menos metade do gap */
+    width: calc(50% - 8px);
   }
 
   .card-receita img {
@@ -174,5 +221,3 @@ main {
     font-size: 0.75rem;
   }
 }
-
-

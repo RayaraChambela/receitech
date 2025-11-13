@@ -10,102 +10,469 @@
   <link rel="stylesheet" href="../css/receita.css">
   <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="../css/footer.css">
-
+  
 </head>
 <body>
   <div class="voltar-container">
     <button class="voltar" onclick="window.history.back()">
       <img src="../assets/setinha-cinza.svg" alt="Voltar" width="25" height="25">
-      <figcaption>Voltar</figcaption>
     </button>
   </div>
 
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html">
+        <img src="../assets/logo-branca.png" alt="Logo Receita Tech" class="logo" />
+      </a>
 
-<header class="navbar">
-  <div class="container">
-    <a href="index.html">
-      <img src="../assets/logo-branca.png" alt="Logo Receita Tech" class="logo" />
-    </a>
-
-    <div class="user-wrapper">
-      <div class="user-icon">
-        <a href="#" id="user-link">
-          <img src="../assets/icon-perfil.png" alt="Usuário" class="perfil-navbar" />
-          <figcaption>Pefil</figcaption>
-        </a>
-      </div>
-    </div>
-
-    <div class="search-container">
-      <div class="dropdown categorias-dropdown">
-        <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-          Categorias
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <li><button class="dropdown-item" type="button">Sobremesas</button></li>
-          <li><button class="dropdown-item" type="button">Almoço</button></li>
-          <li><button class="dropdown-item" type="button">Fitness</button></li>
-          <li><button class="dropdown-item" type="button">Lanches</button></li>
-          <li><button class="dropdown-item" type="button">Bebidas</button></li>
-          <li><button class="dropdown-item" type="button">Jantar</button></li>
-          <li><button class="dropdown-item" type="button">Café da manhã</button></li>
-        </ul>
+      <div class="user-wrapper">
+        <div class="user-icon">
+          <a href="#" id="user-link">
+            <img src="../assets/icon-perfil.png" alt="Usuário" class="perfil-navbar" />
+          </a>
+        </div>
       </div>
 
-      <input type="text" id="campo-pesquisa" placeholder="Pesquise a sua receita..." />
+      <div class="search-container">
+        <div class="dropdown categorias-dropdown">
+          <button
+            class="dropdown-toggle"
+            type="button"
+            id="dropdownMenu2"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Categorias
+          </button>
+
+          <ul class="dropdown-menu categorias-menu" aria-labelledby="dropdownMenu2">
+
+            <!-- BOLOS E TORTAS -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Bolos e tortas"
+              >
+                Bolos e tortas
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Bolos e tortas" data-subcategoria="Bolos simples">
+                    Bolos simples
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Bolos e tortas" data-subcategoria="Bolos recheados">
+                    Bolos recheados
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Bolos e tortas" data-subcategoria="Tortas doces">
+                    Tortas doces
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Bolos e tortas" data-subcategoria="Tortas salgadas">
+                    Tortas salgadas
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- CARNES -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Carnes"
+              >
+                Carnes
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Carnes" data-subcategoria="Bovina">
+                    Bovina
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Carnes" data-subcategoria="Suína">
+                    Suína
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Carnes" data-subcategoria="Carne moída">
+                    Carne moída
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Carnes" data-subcategoria="Churrasco">
+                    Churrasco
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- AVES -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Aves"
+              >
+                Aves
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Aves" data-subcategoria="Frango">
+                    Frango
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Aves" data-subcategoria="Peru">
+                    Peru
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Aves" data-subcategoria="Frango desfiado">
+                    Frango desfiado
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- PEIXES E FRUTOS DO MAR -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Peixes e frutos do mar"
+              >
+                Peixes e frutos do mar
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Peixes e frutos do mar" data-subcategoria="Peixes">
+                    Peixes
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Peixes e frutos do mar" data-subcategoria="Camarão">
+                    Camarão
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Peixes e frutos do mar" data-subcategoria="Frutos do mar variados">
+                    Frutos do mar variados
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- SALADAS E MOLHOS -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Saladas e molhos"
+              >
+                Saladas e molhos
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Saladas e molhos" data-subcategoria="Saladas frias">
+                    Saladas frias
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Saladas e molhos" data-subcategoria="Saladas quentes">
+                    Saladas quentes
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Saladas e molhos" data-subcategoria="Molhos para salada">
+                    Molhos para salada
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- SOPAS -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Sopas"
+              >
+                Sopas
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Sopas" data-subcategoria="Sopas leves">
+                    Sopas leves
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Sopas" data-subcategoria="Caldos">
+                    Caldos
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- MASSAS -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Massas"
+              >
+                Massas
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Massas" data-subcategoria="Macarrão">
+                    Macarrão
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Massas" data-subcategoria="Lasanha">
+                    Lasanha
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Massas" data-subcategoria="Nhoque">
+                    Nhoque
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- BEBIDAS -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Bebidas"
+              >
+                Bebidas
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Bebidas" data-subcategoria="Sucos">
+                    Sucos
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Bebidas" data-subcategoria="Drinks">
+                    Drinks
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Bebidas" data-subcategoria="Sem álcool">
+                    Sem álcool
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- LANCHES -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Lanches"
+              >
+                Lanches
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Lanches" data-subcategoria="Sanduíches">
+                    Sanduíches
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Lanches" data-subcategoria="Hambúrguer">
+                    Hambúrguer
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Lanches" data-subcategoria="Salgados assados">
+                    Salgados assados
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- DOCES E SOBREMESAS -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Doces e sobremesas"
+              >
+                Doces e sobremesas
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Doces e sobremesas" data-subcategoria="Pudins">
+                    Pudins
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Doces e sobremesas" data-subcategoria="Mousses">
+                    Mousses
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Doces e sobremesas" data-subcategoria="Gelatinas">
+                    Gelatinas
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Doces e sobremesas" data-subcategoria="Brigadeiro">
+                    Brigadeiro
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- ALIMENTAÇÃO SAUDÁVEL -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Alimentação saudável"
+              >
+                Alimentação saudável
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Alimentação saudável" data-subcategoria="Low carb">
+                    Low carb
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Alimentação saudável" data-subcategoria="Vegetariano">
+                    Vegetariano
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Alimentação saudável" data-subcategoria="Vegano">
+                    Vegano
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Alimentação saudável" data-subcategoria="Fit">
+                    Fit
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            <!-- TODAS AS RECEITAS -->
+            <li>
+              <button
+                class="dropdown-item dropdown-item-simples"
+                type="button"
+                data-categoria="Todas as receitas"
+              >
+                Todas as receitas
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <input type="text" id="campo-pesquisa" placeholder="Pesquise a sua receita..." />
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main class="container-receita">
-  
-  <h1 id="nome-receita">Nome da Receita</h1>
-  
-  <div class="imagem-central">
-    <img id="imagem-receita" src="" alt="Imagem da Receita">
-  </div>
+  <main class="container-receita">
+    <h1 id="nome-receita">Nome da Receita</h1>
+    
+    <div class="imagem-central">
+      <img id="imagem-receita" src="" alt="Imagem da Receita">
+    </div>
 
-  <div class="detalhes-receita">
-    <a href="perfil.html">
+    <div class="detalhes-receita">
+      <a href="perfil.html">
         <img src="../assets/icon-perfil.svg" alt="Usuário">
-    </a>
-    <span id="autor-receita">Nome do Autor</span>
+      </a>
+      <span id="autor-receita">Nome do Autor</span>
 
-    <img src="../assets/icon-tempo.svg" alt="Relógio">
-    <span id="tempo-preparo">00 mins</span>
-  </div>
+      <img src="../assets/icon-tempo.svg" alt="Relógio">
+      <span id="tempo-preparo">00 mins</span>
+    </div>
 
+    <section class="sobre">
+      <h2>Sobre a Receita</h2>
+      <p id="sobre-receita"></p>
+    </section>
 
-  <section class="sobre">
-    <h2>Sobre a Receita</h2>
-    <p id="sobre-receita"></p>
-  </section>
+    <section class="ingredientes">
+      <h2>Ingredientes</h2>
+      <ul id="ingredientes"></ul>
+    </section>
 
-  <section class="ingredientes">
-    <h2>Ingredientes</h2>
-    <ul id="ingredientes"></ul>
-  </section>
+    <section class="preparo">
+      <h2>Modo de Preparo</h2>
+      <ol id="modo-preparo"></ol>
+    </section>
 
-  <section class="preparo">
-    <h2>Modo de Preparo</h2>
-    <ol id="modo-preparo"></ol>
-  </section>
+    <section class="dica-chef">
+      <h2>Dica do Chef</h2>
+      <p id="dica-chef"></p>
+    </section>
 
-  <section class="dica-chef">
-    <h2>Dica do Chef</h2>
-    <p id="dica-chef"></p>
-  </section>
+  </main>
 
-</main>
+  <footer class="footer">
+    <p>&copy; 2025 Receita Tech. Todos os direitos reservados.</p>
+  </footer>
 
-<footer class="footer">
-  <p>&copy; 2025 Receita Tech. Todos os direitos reservados.</p>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../js/receita.js"></script>
-<script src="../js/navbar.js"></script>
-<script src="../js/categorias.js"></script>
-<script src="../js/auth.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/receita.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/categorias.js"></script>
+  <script src="../js/auth.js"></script>
 </body>
 </html>

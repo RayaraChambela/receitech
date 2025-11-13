@@ -14,7 +14,6 @@
   <div class="voltar-container">
     <button class="voltar" onclick="window.history.back()">
       <img src="../assets/setinha-cinza.svg" alt="Voltar" width="25" height="25">
-      <figcaption>Voltar</figcaption>
     </button>
   </div>
 
@@ -29,14 +28,380 @@
           <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
             Categorias
           </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <li><button class="dropdown-item" type="button">Sobremesas</button></li>
-            <li><button class="dropdown-item" type="button">Almoço</button></li>
-            <li><button class="dropdown-item" type="button">Fitness</button></li>
-            <li><button class="dropdown-item" type="button">Lanches</button></li>
-            <li><button class="dropdown-item" type="button">Bebidas</button></li>
-            <li><button class="dropdown-item" type="button">Jantar</button></li>
-            <li><button class="dropdown-item" type="button">Café da manhã</button></li>
+
+          <ul class="dropdown-menu categorias-menu" aria-labelledby="dropdownMenu2">
+
+            <!-- BOLOS E TORTAS -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Bolos e tortas"
+              >
+                Bolos e tortas
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Bolos e tortas" data-subcategoria="Bolos simples">
+                    Bolos simples
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Bolos e tortas" data-subcategoria="Bolos recheados">
+                    Bolos recheados
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Bolos e tortas" data-subcategoria="Tortas doces">
+                    Tortas doces
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Bolos e tortas" data-subcategoria="Tortas salgadas">
+                    Tortas salgadas
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- CARNES -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Carnes"
+              >
+                Carnes
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Carnes" data-subcategoria="Bovina">
+                    Bovina
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Carnes" data-subcategoria="Suína">
+                    Suína
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Carnes" data-subcategoria="Carne moída">
+                    Carne moída
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Carnes" data-subcategoria="Churrasco">
+                    Churrasco
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- AVES -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Aves"
+              >
+                Aves
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Aves" data-subcategoria="Frango">
+                    Frango
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Aves" data-subcategoria="Peru">
+                    Peru
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Aves" data-subcategoria="Frango desfiado">
+                    Frango desfiado
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- PEIXES E FRUTOS DO MAR -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Peixes e frutos do mar"
+              >
+                Peixes e frutos do mar
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Peixes e frutos do mar" data-subcategoria="Peixes">
+                    Peixes
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Peixes e frutos do mar" data-subcategoria="Camarão">
+                    Camarão
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Peixes e frutos do mar" data-subcategoria="Frutos do mar variados">
+                    Frutos do mar variados
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- SALADAS E MOLHOS -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Saladas e molhos"
+              >
+                Saladas e molhos
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Saladas e molhos" data-subcategoria="Saladas frias">
+                    Saladas frias
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Saladas e molhos" data-subcategoria="Saladas quentes">
+                    Saladas quentes
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Saladas e molhos" data-subcategoria="Molhos para salada">
+                    Molhos para salada
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- SOPAS -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Sopas"
+              >
+                Sopas
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Sopas" data-subcategoria="Sopas leves">
+                    Sopas leves
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Sopas" data-subcategoria="Caldos">
+                    Caldos
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- MASSAS -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Massas"
+              >
+                Massas
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Massas" data-subcategoria="Macarrão">
+                    Macarrão
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Massas" data-subcategoria="Lasanha">
+                    Lasanha
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Massas" data-subcategoria="Nhoque">
+                    Nhoque
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- BEBIDAS -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Bebidas"
+              >
+                Bebidas
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Bebidas" data-subcategoria="Sucos">
+                    Sucos
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Bebidas" data-subcategoria="Drinks">
+                    Drinks
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Bebidas" data-subcategoria="Sem álcool">
+                    Sem álcool
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- LANCHES -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Lanches"
+              >
+                Lanches
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Lanches" data-subcategoria="Sanduíches">
+                    Sanduíches
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Lanches" data-subcategoria="Hambúrguer">
+                    Hambúrguer
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Lanches" data-subcategoria="Salgados assados">
+                    Salgados assados
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- DOCES E SOBREMESAS -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Doces e sobremesas"
+              >
+                Doces e sobremesas
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Doces e sobremesas" data-subcategoria="Pudins">
+                    Pudins
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Doces e sobremesas" data-subcategoria="Mousses">
+                    Mousses
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Doces e sobremesas" data-subcategoria="Gelatinas">
+                    Gelatinas
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Doces e sobremesas" data-subcategoria="Brigadeiro">
+                    Brigadeiro
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <!-- ALIMENTAÇÃO SAUDÁVEL -->
+            <li class="categoria-item">
+              <button
+                class="dropdown-item dropdown-item-principal"
+                type="button"
+                data-categoria="Alimentação saudável"
+              >
+                Alimentação saudável
+              </button>
+              <ul class="dropdown-submenu">
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Alimentação saudável" data-subcategoria="Low carb">
+                    Low carb
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Alimentação saudável" data-subcategoria="Vegetariano">
+                    Vegetariano
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Alimentação saudável" data-subcategoria="Vegano">
+                    Vegano
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-subitem" type="button"
+                    data-categoria="Alimentação saudável" data-subcategoria="Fit">
+                    Fit
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            <!-- TODAS AS RECEITAS -->
+            <li>
+              <button
+                class="dropdown-item dropdown-item-simples"
+                type="button"
+                data-categoria="Todas as receitas"
+              >
+                Todas as receitas
+              </button>
+            </li>
           </ul>
         </div>
 
@@ -46,7 +411,6 @@
       <div class="user-icon">
         <a href="#" id="user-link">
           <img src="../assets/icon-img-perfil.png" alt="Usuário" />
-          <figcaption>Perfil</figcaption>
         </a>
       </div>
     </div>
@@ -61,8 +425,8 @@
     <div class="perfil-content">
       <div class="perfil-foto">
         <img src="../assets/icon-img-perfil.png" alt="Foto de perfil" id="img-perfil">
-        <button class="camera-btn" onclick="fecharPopupEditarPerfil()">
-          <img src="../assets/icon-camera.png" alt="Câmera" class="img-camera" onclick="abrirPopup()">
+        <button class="camera-btn" onclick="abrirPopup()">
+          <img src="../assets/icon-camera.png" alt="Câmera" class="img-camera">
         </button>
       </div>
 
@@ -75,13 +439,14 @@
               <img src="../assets/icon-sair.png" alt="Sair" class="img-btn-sair">
             </button>
           </div>
-          
-          <div class="preview-container">
-            <img id="preview" src="" alt="Pré-visualização" />
-          </div>
 
-          <input type="file" id="imagem" class="input-arquivo" accept="image/*">
           <label for="imagem" class="label-imagem">+ Inserir Imagem</label>
+          <input type="file" id="imagem" class="input-arquivo" accept="image/*">
+
+          <!-- PRÉ-VISUALIZAÇÃO DA IMAGEM -->
+          <div class="preview-wrapper">
+            <img id="preview-foto" class="preview-foto" src="../assets/icon-img-perfil.png" alt="Pré-visualização da foto">
+          </div>
 
           <div id="excluir">
             <img src="../assets/icon-excluir.png" alt="Excluir" id="img-btn-excluir">
@@ -101,36 +466,33 @@
         <p id="email-usuario">email@gmail.com</p>
       </div>
 
-
       <!-- Popup Editar Perfil -->
-        <div class="popup-overlay" id="popup-editar">
-          <div class="popup-editar">
-            <div class="popup-header">
-              <h3>Editar Perfil</h3>
-              <button class="fechar-popup" onclick="fecharPopupEditarPerfil()"><img src="../assets/icon-sair.png" alt="" class="img-btn-sair"></button>
-            </div>
-
-            <form>
-              <label for="nome" class="label-perfil">NOME</label>
-              <input type="text" id="nome" placeholder="Digite o seu nome">
-
-              <label for="email" class="label-perfil">E-MAIL</label>
-              <input type="email" id="email" placeholder="Digite o seu e-mail">
-
-              <label for="senha" class="label-perfil">SENHA</label>
-              <input type="password" id="senha" placeholder="Digite a sua senha">
-
-              <button type="submit" class="btn-salvar">Salvar Alterações</button>
-            </form>
-
-            <p class="aviso">
-              Quer excluir sua conta? <br>Essa ação não pode ser desfeita.
-            </p>
-            <button class="btn-excluir" id="btn-excluir-conta">Excluir minha conta</button>
+      <div class="popup-overlay" id="popup-editar">
+        <div class="popup-editar">
+          <div class="popup-header">
+            <h3>Editar Perfil</h3>
+            <button class="fechar-popup" onclick="fecharPopupEditarPerfil()"><img src="../assets/icon-sair.png" alt="" class="img-btn-sair"></button>
           </div>
+
+          <form>
+            <label for="nome" class="label-perfil">NOME</label>
+            <input type="text" id="nome" placeholder="Digite o seu nome">
+
+            <label for="email" class="label-perfil">E-MAIL</label>
+            <input type="email" id="email" placeholder="Digite o seu e-mail">
+
+            <label for="senha" class="label-perfil">SENHA</label>
+            <input type="password" id="senha" placeholder="Digite a sua senha">
+
+            <button type="submit" class="btn-salvar">Salvar Alterações</button>
+          </form>
+
+          <p class="aviso">
+            Quer excluir sua conta? <br>Essa ação não pode ser desfeita.
+          </p>
+          <button class="btn-excluir" id="btn-excluir-conta">Excluir minha conta</button>
         </div>
-
-
+      </div>
 
       <!-- Posts e botão de novo post -->
       <section class="perfil-posts">

@@ -21,7 +21,8 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-html, body {
+html,
+body {
   height: 100vh;
 }
 
@@ -31,7 +32,6 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
-
 
 p {
   color: var(--text-color);
@@ -58,9 +58,8 @@ main {
   width: 25px;
 }
 
-/* =========================
-   RECEITAS EM GRID
-========================= */
+/* ========================= RECEITAS EM GRID ========================= */
+
 .receitas-grid {
   display: flex;
   flex-wrap: wrap;
@@ -121,9 +120,8 @@ main {
   height: 16px;
 }
 
-/* =========================
-   CATEGORIAS
-========================= */
+/* ========================= CATEGORIAS (BOLINHAS) ========================= */
+
 .categorias-container {
   display: flex;
   flex-wrap: wrap;
@@ -178,9 +176,53 @@ main {
   outline: none;
 }
 
-/* =========================
-   RESPONSIVIDADE
-========================= */
+/* ========================= SUBMENU DO DROPDOWN CATEGORIAS ========================= */
+
+.categorias-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1050;
+}
+
+.categorias-dropdown .categoria-item {
+  position: relative;
+}
+
+.categorias-dropdown .dropdown-submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 220px;
+  background-color: var(--search-bg);
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 0.25rem;
+  z-index: 1051;
+}
+
+.categorias-dropdown .categoria-item:hover > .dropdown-submenu {
+  display: block;
+}
+
+.categorias-dropdown .dropdown-subitem {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 0.35rem 1.25rem;
+  text-align: left;
+  font-size: var(--font-navbar);
+  color: var(--text-color);
+  white-space: nowrap;
+}
+
+.categorias-dropdown .dropdown-subitem:hover {
+  background-color: var(--lighter-grey);
+}
+
+/* ========================= RESPONSIVIDADE ========================= */
+
 @media (max-width: 1330px) {
   .receitas-grid {
     display: grid;
@@ -195,9 +237,9 @@ main {
 @media (max-width: 658px) {
   .receitas-grid {
     display: grid;
-    grid-template-columns: repeat(2, 140px); /* Largura fixa dos cards */
-    justify-content: center; /* Centraliza o grid */
-    column-gap: 0.5rem; /* Espaço entre os dois cards */
+    grid-template-columns: repeat(2, 140px);
+    justify-content: center;
+    column-gap: 0.5rem;
     row-gap: 1rem;
     padding: 1rem 0;
   }
@@ -224,7 +266,8 @@ main {
     height: 14px;
   }
 
-  .categoria img, .btn-categoria img {
+  .categoria img,
+  .btn-categoria img {
     width: 60px;
     height: 60px;
   }

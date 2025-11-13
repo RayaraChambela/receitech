@@ -1,8 +1,72 @@
 let etapaAtual = 1;
+
+// IMPORTANTE: estes nomes PRECISAM bater com o dropdown (data-subcategoria)
+const mapaCategorias = {
+  "Bolos e tortas": [
+    "Bolos simples",
+    "Bolos recheados",
+    "Tortas doces",
+    "Tortas salgadas"
+  ],
+  "Carnes": [
+    "Bovina",
+    "Suína",
+    "Carne moída",
+    "Churrasco"
+  ],
+  "Aves": [
+    "Frango",
+    "Peru",
+    "Frango desfiado"
+  ],
+  "Peixes e frutos do mar": [
+    "Peixes",
+    "Camarão",
+    "Frutos do mar variados"
+  ],
+  "Saladas e molhos": [
+    "Saladas frias",
+    "Saladas quentes",
+    "Molhos para salada"
+  ],
+  "Sopas": [
+    "Sopas leves",
+    "Caldos"
+  ],
+  "Massas": [
+    "Macarrão",
+    "Lasanha",
+    "Nhoque"
+  ],
+  "Bebidas": [
+    "Sucos",
+    "Drinks",
+    "Sem álcool"
+  ],
+  "Lanches": [
+    "Sanduíches",
+    "Hambúrguer",
+    "Salgados assados"
+  ],
+  "Doces e sobremesas": [
+    "Pudins",
+    "Mousses",
+    "Gelatinas",
+    "Brigadeiro"
+  ],
+  "Alimentação saudável": [
+    "Low carb",
+    "Vegetariano",
+    "Vegano",
+    "Fit"
+  ]
+};
+
 let dadosReceita = {
   id: '',
   nome: '',
   categoria: '',
+  subcategoria: '',
   sobre: '',
   ingredientes: [],
   preparo: [],
@@ -13,18 +77,57 @@ let dadosReceita = {
   emailAutor: ''
 };
 
+document.addEventListener('DOMContentLoaded', () => {
+  const selectCategoria = document.getElementById('categoria');
+  if (selectCategoria) {
+    selectCategoria.addEventListener('change', () => {
+      preencherSubcategorias(selectCategoria.value);
+    });
+  }
+});
+
+function preencherSubcategorias(categoriaSelecionada) {
+  const selectSub = document.getElementById('subcategoria');
+  selectSub.innerHTML = '';
+
+  if (!categoriaSelecionada || !mapaCategorias[categoriaSelecionada]) {
+    selectSub.disabled = true;
+    const opt = document.createElement('option');
+    opt.value = '';
+    opt.textContent = 'Selecione a categoria primeiro';
+    selectSub.appendChild(opt);
+    return;
+  }
+
+  selectSub.disabled = false;
+
+  const optPadrao = document.createElement('option');
+  optPadrao.value = '';
+  optPadrao.textContent = 'Selecione';
+  selectSub.appendChild(optPadrao);
+
+  mapaCategorias[categoriaSelecionada].forEach(sub => {
+    const opt = document.createElement('option');
+    opt.value = sub;
+    opt.textContent = sub;
+    selectSub.appendChild(opt);
+  });
+}
+
 function proximaEtapa() {
   const nome = document.getElementById('nome').value;
   const categoria = document.getElementById('categoria').value;
+  const subcategoria = document.getElementById('subcategoria').value;
   const sobre = document.getElementById('sobre').value;
 
-  if (!nome || !categoria || !sobre) {
+  if (!nome || !categoria || !subcategoria || !sobre) {
     alert("Preencha todos os campos!");
     return;
   }
 
   dadosReceita.nome = nome;
   dadosReceita.categoria = categoria;
+  dadosReceita.subcategoria = subcategoria;
   dadosReceita.sobre = sobre;
 
   mudarEtapa(2);
@@ -32,7 +135,9 @@ function proximaEtapa() {
 
 function salvarEtapa2() {
   const inputs = document.querySelectorAll('#lista-ingredientes input');
-  dadosReceita.ingredientes = Array.from(inputs).map(inp => inp.value).filter(val => val.trim() !== "");
+  dadosReceita.ingredientes = Array.from(inputs)
+    .map(inp => inp.value)
+    .filter(val => val.trim() !== "");
 
   if (dadosReceita.ingredientes.length === 0) {
     alert("Adicione pelo menos um ingrediente!");
@@ -44,7 +149,9 @@ function salvarEtapa2() {
 
 function salvarEtapa3() {
   const inputs = document.querySelectorAll('#lista-preparo input');
-  dadosReceita.preparo = Array.from(inputs).map(inp => inp.value).filter(val => val.trim() !== "");
+  dadosReceita.preparo = Array.from(inputs)
+    .map(inp => inp.value)
+    .filter(val => val.trim() !== "");
   dadosReceita.tempoPreparo = document.getElementById('tempo-preparo').value;
 
   if (dadosReceita.preparo.length === 0 || !dadosReceita.tempoPreparo) {

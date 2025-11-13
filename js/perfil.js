@@ -41,6 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (usuario && usuario.fotoPerfil) {
     const imgPerfil = document.getElementById('img-perfil');
     if (imgPerfil) imgPerfil.src = usuario.fotoPerfil;
+
+    const navbarIcon = document.querySelector('.user-icon img');
+    if (navbarIcon) navbarIcon.src = usuario.fotoPerfil;
   }
 
   const btnNovoPost = document.getElementById('btn-novo-post');
@@ -60,48 +63,75 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.querySelector('.btn-salvar').addEventListener('click', function(e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const novoNome = document.getElementById('nome').value;
-  const novoEmail = document.getElementById('email').value;
-  const novaSenha = document.getElementById('senha').value;
+    const novoNome = document.getElementById('nome').value;
+    const novoEmail = document.getElementById('email').value;
+    const novaSenha = document.getElementById('senha').value;
 
-  if (novoNome && novoEmail && novaSenha) {
-    const emailOriginal = usuario.email;  // Captura o email atual ANTES da mudança
+    if (novoNome && novoEmail && novaSenha) {
+      const emailOriginal = usuario.email;
 
-    usuario.nome = novoNome;
-    usuario.email = novoEmail;
-    usuario.senha = novaSenha;
+      usuario.nome = novoNome;
+      usuario.email = novoEmail;
+      usuario.senha = novaSenha;
 
-    localStorage.setItem('usuario', JSON.stringify(usuario));
+      localStorage.setItem('usuario', JSON.stringify(usuario));
 
-    // Atualiza no array de usuários usando o email original
-    let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-    usuarios = usuarios.map(u => {
-      if (u.email === emailOriginal) {
-        return { ...usuario };
+      let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+      usuarios = usuarios.map(u => {
+        if (u.email === emailOriginal) {
+          return { ...usuario };
+        }
+        return u;
+      });
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+      const nomeUsuario = document.getElementById('nome-usuario');
+      const emailUsuario = document.getElementById('email-usuario');
+
+      if (nomeUsuario) nomeUsuario.textContent = novoNome;
+      if (emailUsuario) emailUsuario.textContent = novoEmail;
+
+      fecharPopupEditarPerfil();
+      alert("Informações atualizadas com sucesso!");
+    } else {
+      alert("Preencha todos os campos!");
+    }
+  });
+
+  // ---------- FOTO DE PERFIL / PRÉ-VISUALIZAÇÃO ----------
+  const fileInput = document.getElementById('imagem');
+  const previewFoto = document.getElementById('preview-foto');
+  let arquivoSelecionado = null;
+
+  if (fileInput) {
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+
+      if (!file) {
+        // Se cancelou a escolha, volta pra foto atual ou placeholder
+        if (previewFoto) {
+          previewFoto.src = usuario.fotoPerfil || '../assets/icon-img-perfil.png';
+        }
+        arquivoSelecionado = null;
+        return;
       }
-      return u;
+
+      arquivoSelecionado = file;
+
+      const reader = new FileReader();
+      reader.onload = function(ev) {
+        if (previewFoto) {
+          previewFoto.src = ev.target.result; // só pré-visualização, ainda não salva
+        }
+      };
+      reader.readAsDataURL(file);
     });
-    localStorage.setItem('usuarios', JSON.stringify(usuarios));
-
-    const nomeUsuario = document.getElementById('nome-usuario');
-    const emailUsuario = document.getElementById('email-usuario');
-
-    if (nomeUsuario) nomeUsuario.textContent = novoNome;
-    if (emailUsuario) emailUsuario.textContent = novoEmail;
-
-    fecharPopupEditarPerfil();
-    alert("Informações atualizadas com sucesso!");
-  } else {
-    alert("Preencha todos os campos!");
   }
-});
-
 
   document.getElementById('salvar').addEventListener('click', () => {
-    const fileInput = document.getElementById('imagem');
-    const file = fileInput.files[0];
+    const file = arquivoSelecionado || (fileInput ? fileInput.files[0] : null);
 
     if (file) {
       const reader = new FileReader();
@@ -122,11 +152,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const imgPerfil = document.getElementById('img-perfil');
         if (imgPerfil) imgPerfil.src = usuario.fotoPerfil;
+
+        const navbarIcon = document.querySelector('.user-icon img');
+        if (navbarIcon) navbarIcon.src = usuario.fotoPerfil;
       };
 
       reader.readAsDataURL(file);
     }
 
+    // limpa estado temporário e fecha popup
+    arquivoSelecionado = null;
+    if (fileInput) fileInput.value = '';
     fecharPopup();
   });
 
@@ -149,12 +185,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const navbarIcon = document.querySelector('.user-icon img');
     if (navbarIcon) navbarIcon.src = '../assets/icon-img-perfil.png';
+
+    if (previewFoto) previewFoto.src = '../assets/icon-img-perfil.png';
   });
 
   carregarFeed();
 });
 
 function abrirPopup() {
+  const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
+  const previewFoto = document.getElementById('preview-foto');
+  const fileInput = document.getElementById('imagem');
+
+  if (previewFoto) {
+    previewFoto.src = usuario.fotoPerfil || '../assets/icon-img-perfil.png';
+  }
+
+  if (fileInput) {
+    fileInput.value = '';
+  }
+
   document.getElementById("popup").style.display = "flex";
 }
 
