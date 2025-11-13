@@ -41,6 +41,8 @@ main {
   flex: 1;
 }
 
+/* ========================= BOTÃO VOLTAR ========================= */
+
 .voltar-container {
   position: absolute;
   top: 1.5rem;
@@ -56,6 +58,134 @@ main {
 
 .voltar img {
   width: 25px;
+}
+
+/* ========================= NAVBAR ========================= */
+
+.navbar {
+  background-color: var(--navbar-color);
+  padding: 6px 1rem;
+}
+
+.navbar .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  width: 110px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* wrapper do ícone de usuário entra no fluxo normal do flex */
+.user-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  order: 3;
+}
+
+/* ícone de perfil em si */
+.perfil-navbar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.perfil-navbar:hover {
+  transform: scale(1.05);
+}
+
+/* ========================= BARRA DE PESQUISA ========================= */
+
+.search-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: center;
+  order: 2;
+}
+
+.search-container input {
+  background-color: var(--search-bg);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: var(--font-regular);
+  width: 280px;
+  max-width: 100%;
+  color: var(--text-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  height: 35px;
+}
+
+.search-container input::placeholder {
+  color: var(--placeholder);
+  font-size: 14px;
+}
+
+/* ========================= DROPDOWN DE CATEGORIAS ========================= */
+
+#dropdownMenu2 {
+  font-weight: 500;
+}
+
+.categorias-dropdown .dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: var(--font-navbar);
+  padding: 1px;
+}
+
+.categorias-dropdown .dropdown-toggle::after {
+  color: var(--text-color);
+}
+
+.categorias-dropdown .dropdown-menu {
+  background-color: var(--search-bg);
+  border-radius: 8px;
+  font-size: var(--font-regular);
+  color: var(--text-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.categorias-dropdown .dropdown-submenu,
+.categorias-dropdown .dropdown-submenu li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.categorias-dropdown .dropdown-item {
+  color: var(--text-color);
+}
+
+.categorias-dropdown .dropdown-item:hover {
+  background-color: var(--lighter-grey);
 }
 
 /* ========================= RECEITAS EM GRID ========================= */
@@ -176,7 +306,7 @@ main {
   outline: none;
 }
 
-/* ========================= SUBMENU DO DROPDOWN CATEGORIAS ========================= */
+/* ========================= SUBMENU DO DROPDOWN CATEGORIAS (2º NÍVEL) ========================= */
 
 .categorias-dropdown .dropdown-menu {
   position: absolute;
@@ -223,6 +353,7 @@ main {
 
 /* ========================= RESPONSIVIDADE ========================= */
 
+/* GRID das receitas */
 @media (max-width: 1330px) {
   .receitas-grid {
     display: grid;
@@ -270,5 +401,53 @@ main {
   .btn-categoria img {
     width: 60px;
     height: 60px;
+  }
+}
+
+/* Navbar responsiva */
+@media (max-width: 1215px) {
+  .navbar .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .logo {
+    width: 90px;
+  }
+
+  .search-container {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .search-container input {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .user-wrapper {
+    order: 3;
+    margin-top: 0.25rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    width: 90px;
+  }
+
+  .search-container input {
+    font-size: 0.9rem;
+    height: 32px;
+  }
+
+  .categorias-dropdown .dropdown-toggle {
+    font-size: var(--font-small);
+  }
+
+  .perfil-navbar {
+    width: 32px;
+    height: 32px;
   }
 }

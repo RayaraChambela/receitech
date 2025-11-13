@@ -10,13 +10,18 @@ document.getElementById('campo-pesquisa').addEventListener('keypress', function(
 
 document.addEventListener('DOMContentLoaded', () => {
   const usuario = JSON.parse(localStorage.getItem('usuario'));
-  
+
   if (usuario && usuario.fotoPerfil) {
-    const navbarIcon = document.querySelector('.user-icon img');
+    // tenta achar primeiro na home (.perfil-navbar)
+    let navbarIcon = document.querySelector('.perfil-navbar');
+
+    // se for outra página que usa .user-icon img, pega ela
+    if (!navbarIcon) {
+      navbarIcon = document.querySelector('.user-icon img');
+    }
+
     if (navbarIcon) {
       navbarIcon.src = usuario.fotoPerfil;
     }
   }
 });
-
-
